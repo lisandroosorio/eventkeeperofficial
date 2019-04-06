@@ -58,9 +58,9 @@ angular.module("crowdcart.lists", ["angularMoment"])
 $scope.showall = function(){
   Lists.getAllList()
       .then(function(allLists){
-        $scope.data.allLists = lists;
+        $scope.data.allLists = allLists
           //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
-          
+         
       })
       .catch(function(error){
         console.error(error);
