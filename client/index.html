@@ -12,11 +12,7 @@
       <div class="top-logo">
         <img src="crowdcartlogov2.png" />
       </div>
-      <div class="top-nav-left">
-        <span><a href='#/mylists' class="btn btn-primary btn-lg active top-nav-button">My Lists</a></span>
-        <span><a href='#/alllists' class="btn btn-primary btn-lg active top-nav-button">All Lists</a></span>
-        <span><a href='#/myjobs' class="btn btn-primary btn-lg active top-nav-button">My Jobs</a></span>
-      </div>
+     
       <div class="top-nav-right" ng-if="hasSession">
         <span>
           <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Log Out</a>
@@ -24,29 +20,10 @@
       </div>
     </div>
 
-  <div class="jumbotron" ng-if="!hasSession">
+  <div class="jumbotron" ng-if="!hasSession"> <!--If there is not a session display this message in big letters-->
   <h1 class="display-3">This is a tes and we will see how this goes!</h1>
-  <p class="lead">Grocery List? Chuck it the crowd. Crowdsourcing at its finest.</p>
-  <hr class="m-y-2">
-  <p class="lead">
-    <div class="delivery-address">
-    <uib-accordion>
-      <div uib-accordion-group class="panel-default" is-open="status.open">
-        <uib-accordion-heading>
-          <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
-          <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-        </uib-accordion-heading>
-          <div>
-            <p>Tired of doing the groceries? Share your grocery list with our community called "The Crowd".</p>
-            <p>Want to earn some extra cash? Join the crowd and take up any grocery list as a job you can fulfill.</p>
-            <hr />
-            <p>CrowdCart was founded in late 2016 by a group of HackReactor Alumni:</p>
-            <p>Henry Yang, Daniel Chang, Kyle Van Vleck and Ali Bhatti.</p>
-          </div>
-      </div>
-    </uib-accordion>
-  </div>
-  </p>
+ 
+ 
 </div>
 
 <!-- Carousel -->
@@ -67,12 +44,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
-    <script>
-      initMap = function(){}
-    </script>
-  
-    <!-- Add your google api key here like  src="https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE"-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVsE8lgdSuSoZb6j9ooArKlzc1mBKJJRY&callback=initMap"></script>
+    
 
     <script src="auth/auth.js"></script>
     <script src="lists/lists.js"></script>
