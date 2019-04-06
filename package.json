@@ -1,8 +1,8 @@
 {
-  "name": "EventKeeper",
+  "name": "eventkeeper",
   "version": "0.0.0",
-  "description": "Group app finder",
-  "author": "EventKeeper",
+  "description": "Event Management",
+  "author": "Event keeper team",
   "scripts": {
     "start": "node index.js"
   },
