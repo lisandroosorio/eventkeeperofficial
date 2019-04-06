@@ -112,8 +112,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
   }
 
 
-  //Google Map initializer
-  
+ 
+})
 
 
 // Date Picker ui-bootstrap controller
