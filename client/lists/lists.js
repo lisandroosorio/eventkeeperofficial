@@ -70,16 +70,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
     $scope.list.deliverer_id = '';
 
     //If user choose the default address, assign the default address to the list to be added
-    if($scope.isDefaultAdd) {
-      $scope.list.delivery_address = {
-        street: $scope.street,
-        city: $scope.city,
-        state: $scope.state,
-        zip_code: $scope.zip
-      }
-    }
-    $scope.list.due_at.setHours($scope.list.due_hour);
-    $scope.list.due_at.setMinutes($scope.list.due_minute);
+    console("YEET");
+    
     Lists.newList($scope.list)
       .then(function () {
         $location.path('/mylists');

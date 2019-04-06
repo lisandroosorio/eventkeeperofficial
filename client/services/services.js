@@ -100,7 +100,7 @@ angular.module("crowdcart.services",[])
 
   // posting a new lists
  
-  var newList = function(list) {
+  var newList = function(list) {  //KEYKEY
     console.log("Are we even getting here?");
     return $http({
       method: "POST",
