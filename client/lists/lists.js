@@ -17,13 +17,17 @@ angular.module("crowdcart.lists", ["angularMoment"])
   $scope.city = $window.localStorage.getItem('crowdcartusercity');
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
 
-
+  Lists.getLists($scope.userid)
+  .then(function (lists) {
+    $scope.data.lists = lists;
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
   console.log("we are currently with user "+ $scope.userid);
 
   var initialize = function () {
-     console.log('userId: ',$scope.userid);
-     console.log($rootScope);
-     console.log('user', $scope.city);
+     
 
     // is routePararms exists it means directed here via URL
     if ($routeParams.listid) {
