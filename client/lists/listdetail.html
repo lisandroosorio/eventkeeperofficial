@@ -8,7 +8,7 @@
         <uib-accordion-heading>
           Delivery Address <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
         </uib-accordion-heading>
-          <div>{{ displayList.name }}</div>
+          <div>{{ this.list.name }}</div>
           <div>{{ displayList._id }}, {{ displayList.delivery_address.state }}</div>
           <div>{{ displayList.delivery_address.zip_code }}</div>
       </div>

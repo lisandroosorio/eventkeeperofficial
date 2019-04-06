@@ -48,7 +48,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
           $scope.displayList = list
         })
     }
-    
+    //displaylist._id is what holds the value we need to send as the creator id!!
     //Get all lists belong to user
     Lists.getLists($scope.userid)
       .then(function (lists) {
