@@ -19,10 +19,6 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
 
   console.log("we are currently with user "+ $scope.userid);
-  console.log('userId: ',$scope.userid);
-  console.log($rootScope);
-  console.log('user', $scope.city);
-
 
 
       
