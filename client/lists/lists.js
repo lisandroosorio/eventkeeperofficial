@@ -20,14 +20,15 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   console.log("we are currently with user "+ $scope.userid);
 
-  Lists.getLists($scope.userid) //gets all the lists right away for the user
-  .then(function (lists) {
-    $scope.data.lists = lists;
+  Lists.getAllList()
+  .then(function(allLists){
+    $scope.data.allLists = allLists;
+      //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
+     
   })
-  .catch(function (error) {
+  .catch(function(error){
     console.error(error);
   });
-
       
    var initialize = function () {
      console.log('userId: ',$scope.userid);
