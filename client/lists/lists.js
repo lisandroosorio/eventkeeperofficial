@@ -59,7 +59,7 @@ $scope.showall = function(){
   console.log("testing we got to showall function call ");
   Lists.getAllList()
       .then(function(allLists){
-        $scope.data.allLists = allLists
+        $scope.data.allLists = allLists;
           //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
          
       })
