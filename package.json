@@ -1,8 +1,8 @@
 {
-  "name": "CrowdCart",
+  "name": "EventKeeper",
   "version": "0.0.0",
-  "description": "Shopping Web App",
-  "author": "Team Dancing-Penguin",
+  "description": "Group app finder",
+  "author": "EventKeeper",
   "scripts": {
     "start": "node index.js"
   },
