@@ -29,7 +29,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
     console.error(error);
   });
 
-console.log("we have these events with these ids"+$scope.data.list);
+console.log("we have these events with these ids"+ lists[0].listid);
       
    var initialize = function () {
      console.log('userId: ',$scope.userid);
