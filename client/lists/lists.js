@@ -28,6 +28,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
     console.error(error);
   });
 
+
       
    var initialize = function () {
      console.log('userId: ',$scope.userid);
