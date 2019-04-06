@@ -101,7 +101,7 @@ angular.module("crowdcart.services",[])
   // posting a new lists
  
   var newList = function(list) {
-    console.log(user)
+    console.log("Are we even getting here?");
     return $http({
       method: "POST",
       url: "/api/lists",
