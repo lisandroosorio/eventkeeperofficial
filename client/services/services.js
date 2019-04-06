@@ -99,14 +99,19 @@ angular.module("crowdcart.services",[])
   }
 
   // posting a new lists
-  var newList = function (list) {
+ 
+  var newList = function(list) {
+    console.log(user)
     return $http({
       method: "POST",
       url: "/api/lists",
-      data: list
-    });
+      // clarify on data format
+      data: JSON.stringify(list)
+    })
+    .then(function(res) {
+      return res.data
+    })
   }
-
   var deleteList = function (listid) {
     return $http({
       method: "DELETE",

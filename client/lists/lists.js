@@ -22,7 +22,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
 
       
-  $scope.initialize = function () {
+   var initialize = function () {
      console.log('userId: ',$scope.userid);
      console.log($rootScope);
      console.log('user', $scope.city);
