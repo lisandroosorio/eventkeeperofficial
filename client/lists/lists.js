@@ -10,6 +10,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   console.log('HELLLLO1!');
 
+
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
   $scope.street = $window.localStorage.getItem('crowdcartuserstreet');
@@ -17,27 +18,28 @@ angular.module("crowdcart.lists", ["angularMoment"])
   $scope.city = $window.localStorage.getItem('crowdcartusercity');
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
 
-  if ($routeParams.listid) {
+
+  console.log("we are currently with user "+ $scope.userid);
+  if ($routeParams.listid) { //this is what sends the list type to the user
     Lists.getOneList($routeParams.listid)
       .then(function (list) {
         $scope.displayList = list
       })
   }
-  console.log("we are currently with user "+ $scope.userid);
 
   Lists.getLists($scope.userid) //gets all the lists right away for the user
   .then(function (lists) {
     $scope.data.lists = lists;
+  
   })
   .catch(function (error) {
     console.error(error);
   });
 
+
       
    var initialize = function () {
-     console.log('userId: ',$scope.userid);
-     console.log($rootScope);
-     console.log('user', $scope.city);
+    
 
     // is routePararms exists it means directed here via URL
     if ($routeParams.listid) {
@@ -46,7 +48,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
           $scope.displayList = list
         })
     }
-
+    //displaylist._id is what holds the value we need to send as the creator id!!
     //Get all lists belong to user
     Lists.getLists($scope.userid)
       .then(function (lists) {

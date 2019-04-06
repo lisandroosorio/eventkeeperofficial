@@ -1,7 +1,7 @@
 // require userHandler, listHandler
 var userHandler = require('../users/userHandler.js');
 var listHandler = require('../lists/listHandler.js');
-var eventHandler = require('../events/eventHandler.js');
+
 // export function
 module.exports = function(app, express){
 
@@ -36,22 +36,9 @@ module.exports = function(app, express){
         // GET - getAllLists
         app.get('/api/crowd', listHandler.getAllLists);
         
+       
+        
         app.post('/api/status', listHandler.updateStatus);
-
-          // POST - addEvent
-          app.post('/api/events', eventHandler.addEvent);
-          // GET - getEvent (single Event)
-          app.get('/api/event/:id', eventHandler.getOneEvent);
-          // GET - getevents (users events)
-          app.get('/api/events/:id', eventHandler.getEvents);
-          // PUT - for updating event
-          app.put('/api/events', eventHandler.updateEvent);
-          // DELETE - deletes a single event
-          app.delete('/api/events/:id', eventHandler.deleteEvent);
-          // GET - getAllevents
-          app.get('/api/party', eventHandler.getAllEvents);
-          
-       //   app.post('/api/statusEve', eventHandler.updateStatus);
 //function is for testing
 
   // POST - signup

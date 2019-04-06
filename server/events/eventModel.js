@@ -24,4 +24,4 @@ var ListSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Event', ListSchema);
+module.exports = mongoose.model('List', ListSchema);
