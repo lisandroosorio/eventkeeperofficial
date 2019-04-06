@@ -20,10 +20,17 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
 
   console.log("we are currently with user "+ $scope.userid);
+  if ($routeParams.listid) {
+    Lists.getOneList($routeParams.listid)
+      .then(function (list) {
+        $scope.displayList = list
+      })
+  }
 
   Lists.getLists($scope.userid) //gets all the lists right away for the user
   .then(function (lists) {
     $scope.data.lists = lists;
+  
   })
   .catch(function (error) {
     console.error(error);
