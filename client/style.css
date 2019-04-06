@@ -31,8 +31,8 @@ body {
 }
 
 .signup-outer, .signin-outer {
-  background-color: steelblue;
-  padding: 20px;
+  background-color:red;
+  padding: 5px;
   text-align: center;
 }
 
