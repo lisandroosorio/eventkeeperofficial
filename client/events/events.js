@@ -1,28 +1,24 @@
-angular.module("crowdcart.lists", ["angularMoment"])
+angular.module("crowdcart.events", ["angularMoment"])
 
-.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
+.controller("EventsController", function ($scope, Events, $window, $location, $rootScope, $routeParams, $interval) {
 
   // storage objs
   $scope.data = {};
-  $scope.list = {};
-  $scope.list.delivery_address = {};
-  $scope.list.items = [];
+  $scope.event = {};
+  $scope.event.delivery_address = {};
+  $scope.event.items = [];
 
-  console.log('HELLLLO1!');
-
+  console.log('HELLLLlllO1!');
+ //want to store the group id, not the other crap 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
   $scope.street = $window.localStorage.getItem('crowdcartuserstreet');
   $scope.state = $window.localStorage.getItem('crowdcartuserstate');
   $scope.city = $window.localStorage.getItem('crowdcartusercity');
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
+  $scope.listid = $window.localStorage.getItem('crowdcartlist');
 
-  if ($routeParams.listid) {
-    Lists.getOneList($routeParams.listid)
-      .then(function (list) {
-        $scope.displayList = list
-      })
-  }
+  
   console.log("we are currently with user "+ $scope.userid);
 
   Lists.getLists($scope.userid) //gets all the lists right away for the user

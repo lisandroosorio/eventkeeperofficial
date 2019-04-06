@@ -2,6 +2,7 @@
 angular.module("crowdcart", [
     "crowdcart.auth",
     "crowdcart.lists",
+    "crowdcard.events",
     "crowdcart.services",
     "ngRoute",
     "ui.bootstrap"
@@ -42,14 +43,31 @@ angular.module("crowdcart", [
       .when('/listdetail/:listid', {
         templateUrl: 'lists/listdetail.html',
         controller: 'ListsController'
-        // // authentication removed to be sharable link
-        // authenticate: true
+      
       })
-      // .when('/findjobs', {
-      //   templateUrl: 'jobs/findjobs.html',
-      //   //controller: '',
-      //   authenticate: true
-      // })
+
+      .when('/myevents', {
+        templateUrl: 'events/myevents.html',
+        controller: 'EventsController',
+        authenticate: true
+      })
+       .when('/createnewevent', {
+        templateUrl: 'events/createnewevent.html',
+        controller: 'EventsController',
+        authenticate: true
+      })
+      .when('/allevents', {
+        templateUrl: 'events/allevents.html',
+        controller: 'EventsController',
+        authenticate: true
+      })
+      
+      .when('/eventdetail/:eventid', {
+        templateUrl: 'events/listdetail.html',
+        controller: 'ListsController'
+      
+      })
+    
       .otherwise({
         redirectTo: "/mylists"
       });

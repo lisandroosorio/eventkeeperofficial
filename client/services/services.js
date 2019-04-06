@@ -152,3 +152,98 @@ angular.module("crowdcart.services",[])
 })
 
 
+.factory("Events", function($http) {
+  //get all events for a specific group
+  // get all events for specific user; since with routing to decide if that's the right meaning
+  var getEvents = function (id) {
+     console.log("getting all events for this list id ", id)
+    var user = {userid: id}
+    // console.log(JSON.stringify(user))
+    return $http({
+      method: "GET",
+      url: "/api/events/" + id
+      // data: JSON.stringify(user)
+    })
+    .then(function(res) {
+      // console.log('lists: ', res.data)
+      return res.data;
+    })
+  }
+
+  // get one list when given eventid
+  var getOneEvent = function(eventid) {
+    return $http({
+      method: "GET",
+      url: "/api/event/" + eventid
+    })
+    .then(function(res) {
+      return res.data
+    })
+  }
+
+  //get all events in system
+  var getAllEvents = function() {
+    return $http({
+      method: "GET",
+      url: "/api/party"
+    })
+    .then(function(res){
+      // console.log('ALL eventS: ', res.data);
+      return res.data;
+    })
+  }
+
+  // posting a new events
+ 
+  var newEvent = function(event) {  //KEYKEY
+    console.log("Are we even getting here event?");
+    return $http({
+      method: "POST",
+      url: "/api/events",
+      // clarify on data format
+      data: JSON.stringify(event)
+    })
+    .then(function(res) {
+      return res.data
+    })
+  }
+  var deletEvent = function (eventid) {
+    return $http({
+      method: "DELETE",
+      url: "/api/events/" + eventid
+    })
+  }
+
+  // added because server route looks to handle, not sure if we will need it
+  var updateStatus2 = function (eventId, status) {
+    return $http({
+      method: "POST",
+      url: "api/statusEve",
+      // need to decide on format for this call
+      data: eventId, status
+    })
+  }
+
+  // Used when Updating Job Deliverer_id
+  var updateEvent = function (event) {
+    return $http({
+      method: "PUT",
+      url: "/api/events",
+      data: event
+    })
+  }
+
+  return {
+    getEvents: getEvents,
+    getAllEvents: getAllEvents,
+    getOneEvent: getOneEvent,
+    newEvent: newEvent,
+    updateStatus2: updateStatus2,
+    newEvent: newEvent,
+    updateEvent: updateEvent,
+    deleteEvent: deleteEvent
+  }
+
+})
+
+
