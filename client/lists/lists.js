@@ -73,7 +73,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
   
 
     //If user choose the default address, assign the default address to the list to be added
-    console("YEET");
+    console.log("YEET");
     
     Lists.newList($scope.list)
       .then(function () {
