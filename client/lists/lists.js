@@ -48,7 +48,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
           $scope.displayList = list
         })
     }
-
+    
     //Get all lists belong to user
     Lists.getLists($scope.userid)
       .then(function (lists) {
