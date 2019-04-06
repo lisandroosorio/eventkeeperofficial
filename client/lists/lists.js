@@ -51,7 +51,12 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
-    Lists.getAllList()
+    
+
+
+  };
+$scope.showall = function(){
+  Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
           //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
@@ -62,9 +67,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
-
-  };
-
+}
   $scope.displayDetail = function(listid) {
     // simple redirect
     $location.path("/listdetail/" + listid)
