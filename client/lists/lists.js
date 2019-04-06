@@ -1,6 +1,6 @@
 angular.module("crowdcart.lists", ["angularMoment"])
 
-.controller("ListsController", function ($scope,list, Lists, $window, $location, $rootScope, $routeParams, $interval) {
+.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
 
   // storage objs
   $scope.data = {};
