@@ -56,6 +56,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   };
 $scope.showall = function(){
+  console.log("testing we got to showall function call ");
   Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists
