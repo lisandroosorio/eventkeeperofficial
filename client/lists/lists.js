@@ -20,15 +20,14 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   console.log("we are currently with user "+ $scope.userid);
 
-  Lists.getAllList()
-  .then(function(allLists){
-    $scope.data.allLists = allLists;
-      //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
-     
+  Lists.getLists($scope.userid) //gets all the lists right away for the user
+  .then(function (lists) {
+    $scope.data.lists = lists;
   })
-  .catch(function(error){
+  .catch(function (error) {
     console.error(error);
   });
+
       
    var initialize = function () {
      console.log('userId: ',$scope.userid);
@@ -58,7 +57,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
   };
 $scope.showall = function(){
   console.log("testing we got to showall function call ");
-  Lists.getAllList()
+  Lists.getAllLists()
       .then(function(allLists){
         $scope.data.allLists = allLists;
           //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
