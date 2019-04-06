@@ -140,7 +140,7 @@ angular.module("crowdcart.services",[])
 
   return {
     getLists: getLists,
-    getAllList: getAllList,
+    getAllLists: getAllLists,
     getOneList: getOneList,
     newList: newList,
     updateStatus: updateStatus,
