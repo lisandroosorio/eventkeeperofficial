@@ -2,7 +2,6 @@
 angular.module("crowdcart", [
     "crowdcart.auth",
     "crowdcart.lists",
-    "crowdcart.jobs",
     "crowdcart.services",
     "ngRoute",
     "ui.bootstrap"
@@ -39,11 +38,7 @@ angular.module("crowdcart", [
         controller: 'ListsController',
         authenticate: true
       })
-      .when('/myjobs', {
-        templateUrl: 'jobs/myjobs.html',
-        controller: 'JobsController',
-        authenticate: true
-      })
+      
       .when('/listdetail/:listid', {
         templateUrl: 'lists/listdetail.html',
         controller: 'ListsController'

@@ -150,43 +150,5 @@ angular.module("crowdcart.services",[])
   }
 
 })
-.factory("Jobs", function($http) {
 
-  // get all jobs for specific user
-  var getJobs = function (id) {
-    var user = {userid: id}
-    return $http({
-      method: "GET",
-      url: "/api/jobs/" + id,
-      data: JSON.stringify(user)
-    })
-    .then(function (res) {
-      return res.data
-    })
-  }
 
-  // update job status when task complete
-  var updateJobStatus = function (listId, status) {
-    return $http({
-      method: "POST",
-      url: "api/jobs",
-      data: listId, status
-    })
-  }
-
-  // maybe mvp
-  var deleteJob = function (list) {
-    return $http({
-      method: "DELETE",
-      url: "/api/jobs",
-      data: list /*id*/
-    })
-  }
-
-  return {
-    getJobs: getJobs,
-    updateJobStatus: updateJobStatus,
-    deleteJob: deleteJob
-  }
-
-})
