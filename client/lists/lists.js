@@ -24,7 +24,23 @@ angular.module("crowdcart.lists", ["angularMoment"])
   console.log('user', $scope.city);
 
 
-  Lists.getLists($scope.userid)
+
+      
+  $scope.initialize = function () {
+     console.log('userId: ',$scope.userid);
+     console.log($rootScope);
+     console.log('user', $scope.city);
+
+    // is routePararms exists it means directed here via URL
+    if ($routeParams.listid) {
+      Lists.getOneList($routeParams.listid)
+        .then(function (list) {
+          $scope.displayList = list
+        })
+    }
+
+    //Get all lists belong to user
+    Lists.getLists($scope.userid)
       .then(function (lists) {
         $scope.data.lists = lists;
       })
@@ -32,8 +48,19 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
+    Lists.getAllList()
+      .then(function(allLists){
+        $scope.data.allLists = allLists.filter(function(list){
+          //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
+          return !list.deliverer_id && list.creator_id !== $scope.userid && new Date(list.due_at) >= new Date();
+        });
+      })
+      .catch(function(error){
+        console.error(error);
+      });
 
-  
+
+  };
 
   $scope.displayDetail = function(listid) {
     // simple redirect
