@@ -87,7 +87,7 @@ angular.module("crowdcart.services",[])
   }
 
   //get all lists in system
-  var getAllList = function() {
+  var getAllLists = function() {
     return $http({
       method: "GET",
       url: "/api/crowd"
