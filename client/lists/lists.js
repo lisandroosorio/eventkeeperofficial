@@ -1,6 +1,6 @@
 angular.module("crowdcart.lists", ["angularMoment"])
 
-.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
+.controller("ListsController", function ($scope,list, Lists, $window, $location, $rootScope, $routeParams, $interval) {
 
   // storage objs
   $scope.data = {};
@@ -68,9 +68,9 @@ angular.module("crowdcart.lists", ["angularMoment"])
     console.log("here?");
 
     $scope.list.creator_id = $scope.userid; //this is how you associate the creator of the db
-    
+
     // Defaulting deliverer_id to empty string
-    $scope.list.deliverer_id = '';
+  
 
     //If user choose the default address, assign the default address to the list to be added
     console("YEET");
