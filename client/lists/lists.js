@@ -65,7 +65,10 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   //add new list method, will be attached into createnewlist.html
   $scope.addList = function () {
-    $scope.list.creator_id = $scope.userid;
+    console.log("here?");
+
+    $scope.list.creator_id = $scope.userid; //this is how you associate the creator of the db
+    
     // Defaulting deliverer_id to empty string
     $scope.list.deliverer_id = '';
 
@@ -74,7 +77,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
     
     Lists.newList($scope.list)
       .then(function () {
-        $location.path('/mylists');
+        $location.path('/mylists'); //go to mylists was successfull
       })
       .catch(function (error) {
         console.log(error);
