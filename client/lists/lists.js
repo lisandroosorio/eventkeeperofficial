@@ -8,6 +8,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
   $scope.list.delivery_address = {};
   $scope.list.items = [];
 
+  console.log('HELLLLO1!');
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
@@ -17,9 +18,9 @@ angular.module("crowdcart.lists", ["angularMoment"])
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
 
   var initialize = function () {
-    // console.log('userId: ',$scope.userid)
-    // console.log($rootScope)
-    // console.log('user', $scope.city)
+     console.log('userId: ',$scope.userid)
+     console.log($rootScope)
+     console.log('user', $scope.city)
 
     // is routePararms exists it means directed here via URL
     if ($routeParams.listid) {
