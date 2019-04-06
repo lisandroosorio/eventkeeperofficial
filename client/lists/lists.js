@@ -20,7 +20,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
 
   console.log("we are currently with user "+ $scope.userid);
-  if ($routeParams.listid) {
+  if ($routeParams.listid) { //this is what sends the list type to the user
     Lists.getOneList($routeParams.listid)
       .then(function (list) {
         $scope.displayList = list
@@ -39,9 +39,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
       
    var initialize = function () {
-     console.log('userId: ',$scope.userid);
-     console.log($rootScope);
-     console.log('user', $scope.city);
+    
 
     // is routePararms exists it means directed here via URL
     if ($routeParams.listid) {
