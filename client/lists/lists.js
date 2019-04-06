@@ -28,7 +28,6 @@ angular.module("crowdcart.lists", ["angularMoment"])
     console.error(error);
   });
 
-
       
    var initialize = function () {
      console.log('userId: ',$scope.userid);
@@ -56,9 +55,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
 
   };
-$scope.showall = function(){
-  console.log("testing we got to showall function call ");
-  Lists.getAllList()
+$scope.showallZ = function(){
+  Lists.getAllLists()
       .then(function(allLists){
         $scope.data.allLists = allLists;
           //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
