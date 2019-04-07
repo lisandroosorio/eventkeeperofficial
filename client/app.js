@@ -1,6 +1,7 @@
 // create the crowdcart app
 angular.module("crowdcart", [
     "crowdcart.auth",
+    "crowdcart.events",
     "crowdcart.lists",
     "crowdcart.services",
     "ngRoute",
@@ -50,6 +51,25 @@ angular.module("crowdcart", [
       //   //controller: '',
       //   authenticate: true
       // })
+      .when('/myevents', {
+        templateUrl: 'events/myevents.html',
+        controller: 'EventsController',
+        authenticate: true
+      })
+       .when('/createnewevent', {
+        templateUrl: 'events/createnewevent.html',
+        controller: 'EventsController',
+        authenticate: true
+      })
+     
+      
+      .when('/eventdetail/:eventid', {
+        templateUrl: 'events/eventdetail.html',
+        controller: 'EventsController'
+      
+      })
+
+
       .otherwise({
         redirectTo: "/mylists"
       });

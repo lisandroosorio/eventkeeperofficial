@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var ListSchema = new mongoose.Schema({
+var EventSchema = new mongoose.Schema({
   name: String,
   created_at: {
     type: Date,
@@ -24,4 +24,4 @@ var ListSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('List', ListSchema);
+module.exports = mongoose.model('Event', EventSchema);
