@@ -56,7 +56,19 @@ angular.module("crowdcart.events", ["angularMoment"])
       .catch(function (error) {
         console.log(error);
       });
+    
+
+
+
+
   };
+  $scope.deleteEvent = function(eventid, idx) {
+    Events.deleteEvent(eventid)
+      .then(function () {
+        $scope.data.events.splice(idx, 1)
+      })
+  }
+
 
 
 
