@@ -12,20 +12,19 @@ var GroupSchema = new mongoose.Schema({
   creator_id: String,
   deliverer_id: String,
 
-  //items is a array containing all Group items
-  //Each item should be follow this structure:
-  // {
-  //    item_name: String,
-  //    quantity:  Number,
-  //    unite_price: Number  //this is typo, and too late to change for us.
-  // }
+
+  description: String, //new
+  school : String,  //new 
+  private : Boolean,
+
   items : [],
   total_price: Number,
   offer_price: Number,
   status: String,
 
-  //If delivery address is different from Group creator's address
-  delivery_address: {
+
+  //If location address is different from Group creator's address
+  location_address: {
     street: String,
     city: String,
     state: String,

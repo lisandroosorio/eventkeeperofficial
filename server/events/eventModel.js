@@ -15,7 +15,7 @@ var EventSchema = new mongoose.Schema({
   type: String,
   privateAccess : Boolean,
 
-  //If delivery address is different from group creator's address
+  //If location address is different from group creator's address
   event_address: {
     street: String,
     city: String,

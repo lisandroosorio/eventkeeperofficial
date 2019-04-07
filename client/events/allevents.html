@@ -12,7 +12,7 @@
       <tbody>
         <tr ng-repeat="event in data.allEvents " >
           <td>{{ event.name }}</td>
-          <td>{{ group.delivery_address.city }}, {{ group.delivery_address.state }}</td>
+          <td>{{ group.location_address.city }}, {{ group.location_address.state }}</td>
           <td><span am-time-ago="group.due_at"></span></td>
         
         </tr>

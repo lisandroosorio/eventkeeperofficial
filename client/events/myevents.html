@@ -12,8 +12,8 @@
       <tbody>
         <tr ng-repeat="event in data.events " >
           <td>{{ event.name }}</td>
-          <td>{{ this.event._id }}</td>
-          <td>{{ group.delivery_address.city }}, {{ group.delivery_address.state }}</td>
+          <td>{{ this.event.group_id }}</td>
+          <td>{{ group.name }}, {{ group.location_address.state }}</td>
           <td><span am-time-ago="group.due_at"></span></td>
           <td><a ng-click="deleteEvent(this.event._id, $index)" class="btn btn-primary btn-sm active">Delete Event</a></td> 
         </tr>

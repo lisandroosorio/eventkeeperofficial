@@ -7,7 +7,7 @@ body {
   opacity: 0.95;
 }
 
-.items, .delivery-address {
+.items, .location-address {
   padding: 3px;
 }
 

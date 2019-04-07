@@ -5,7 +5,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   // storage objs
   $scope.data = {};
   $scope.group = {};
-  $scope.group.delivery_address = {};
+  $scope.group.location_address = {};
   $scope.group.items = [];
 
   console.log('HELLLLO1!');
