@@ -2,7 +2,7 @@
 angular.module("crowdcart", [
     "crowdcart.auth",
     "crowdcart.events",
-    "crowdcart.lists",
+    "crowdcart.groups",
     "crowdcart.services",
     "ngRoute",
     "ui.bootstrap"
@@ -24,25 +24,25 @@ angular.module("crowdcart", [
         templateUrl: 'auth/signin.html',
         controller: 'AuthController'
       })
-      .when('/mylists', {
-        templateUrl: 'lists/mylists.html',
-        controller: 'ListsController',
+      .when('/mygroups', {
+        templateUrl: 'groups/mygroups.html',
+        controller: 'GroupsController',
         authenticate: true
       })
-       .when('/createnewlist', {
-        templateUrl: 'lists/createnewlist.html',
-        controller: 'ListsController',
+       .when('/createnewgroup', {
+        templateUrl: 'groups/createnewgroup.html',
+        controller: 'GroupsController',
         authenticate: true
       })
-      .when('/alllists', {
-        templateUrl: 'lists/alllists.html',
-        controller: 'ListsController',
+      .when('/allgroups', {
+        templateUrl: 'groups/allgroups.html',
+        controller: 'GroupsController',
         authenticate: true
       })
       
-      .when('/listdetail/:listid', {
-        templateUrl: 'lists/listdetail.html',
-        controller: 'ListsController'
+      .when('/groupdetail/:groupid', {
+        templateUrl: 'groups/groupdetail.html',
+        controller: 'GroupsController'
         // // authentication removed to be sharable link
         // authenticate: true
       })
@@ -71,7 +71,7 @@ angular.module("crowdcart", [
 
 
       .otherwise({
-        redirectTo: "/mylists"
+        redirectTo: "/mygroups"
       });
   
       $httpProvider.interceptors.push('AttachTokens');

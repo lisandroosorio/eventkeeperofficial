@@ -1,6 +1,6 @@
-// require userHandler, listHandler
+// require userHandler, groupHandler
 var userHandler = require('../users/userHandler.js');
-var listHandler = require('../lists/listHandler.js');
+var groupHandler = require('../groups/groupHandler.js');
 var eventHandler = require('../events/eventHandler.js');
 // export function
 module.exports = function(app, express){
@@ -23,18 +23,18 @@ module.exports = function(app, express){
         // POST - signup
         app.post('/api/signup', userHandler.signup);
       
-        // POST - addList
-        app.post('/api/lists', listHandler.addList);
-        // GET - getList (single list)
-        app.get('/api/list/:id', listHandler.getOneList);
-        // GET - getLists (users lists)
-        app.get('/api/lists/:id', listHandler.getLists);
-        // PUT - for updating list
-        app.put('/api/lists', listHandler.updateList);
-        // DELETE - deletes a single list
-        app.delete('/api/lists/:id', listHandler.deleteList);
-        // GET - getAllLists
-        app.get('/api/crowd', listHandler.getAllLists);
+        // POST - addgroup
+        app.post('/api/groups', groupHandler.addGroup);
+        // GET - getGroup (single Group)
+        app.get('/api/group/:id', groupHandler.getOneGroup);
+        // GET - getGroups (users groups)
+        app.get('/api/groups/:id', groupHandler.getGroups);
+        // PUT - for updating group
+        app.put('/api/groups', groupHandler.updateGroup);
+        // DELETE - deletes a single group
+        app.delete('/api/groups/:id', groupHandler.deleteGroup);
+        // GET - getAllGroups
+        app.get('/api/crowd', groupHandler.getAllGroups);
         
          // POST - addEvent
          app.post('/api/events', eventHandler.addEvent);
@@ -49,7 +49,7 @@ module.exports = function(app, express){
          // GET - getAllevents
          app.get('/api/party', eventHandler.getAllEvents);
         
-        app.post('/api/status', listHandler.updateStatus);
+        app.post('/api/status', groupHandler.updateStatus);
 //function is for testing
 
   // POST - signup

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var ListSchema = new mongoose.Schema({
+var GroupSchema = new mongoose.Schema({
   name: String,
   created_at: {
     type: Date,
@@ -12,7 +12,7 @@ var ListSchema = new mongoose.Schema({
   creator_id: String,
   deliverer_id: String,
 
-  //items is a array containing all list items
+  //items is a array containing all Group items
   //Each item should be follow this structure:
   // {
   //    item_name: String,
@@ -24,7 +24,7 @@ var ListSchema = new mongoose.Schema({
   offer_price: Number,
   status: String,
 
-  //If delivery address is different from list creator's address
+  //If delivery address is different from Group creator's address
   delivery_address: {
     street: String,
     city: String,
@@ -33,4 +33,4 @@ var ListSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('List', ListSchema);
+module.exports = mongoose.model('Group', GroupSchema);

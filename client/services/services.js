@@ -57,96 +57,96 @@ angular.module("crowdcart.services",[])
 
 })
 
-.factory("Lists", function($http) {
+.factory("Groups", function($http) {
 
-  // get all lists for specific user; since with routing to decide if that's the right meaning
-  var getLists = function (id) {
-    // console.log("getting all lists for", id)
+  // get all groups for specific user; since with routing to decide if that's the right meaning
+  var getGroups = function (id) {
+    // console.log("getting all Groups for", id)
     var user = {userid: id}
     // console.log(JSON.stringify(user))
     return $http({
       method: "GET",
-      url: "/api/lists/" + id
+      url: "/api/groups/" + id
       // data: JSON.stringify(user)
     })
     .then(function(res) {
-      // console.log('lists: ', res.data)
+      // console.log('groups: ', res.data)
       return res.data;
     })
   }
 
-  // get one list when given listid
-  var getOneList = function(listid) {
+  // get one group when given groupid
+  var getOneGroup = function(groupid) {
     return $http({
       method: "GET",
-      url: "/api/list/" + listid
+      url: "/api/group/" + groupid
     })
     .then(function(res) {
       return res.data
     })
   }
 
-  //get all lists in system
-  var getAllLists = function() {
+  //get all groups in system
+  var getAllGroups = function() {
     return $http({
       method: "GET",
       url: "/api/crowd"
     })
     .then(function(res){
-      // console.log('ALL LISTS: ', res.data);
+      // console.log('ALL GroupS: ', res.data);
       return res.data;
     })
   }
 
-  // posting a new lists
+  // posting a new groups
  
-  var newList = function(list) {  //KEYKEY
+  var newGroup = function(group) {  //KEYKEY
     console.log("Are we even getting here?");
     return $http({
       method: "POST",
-      url: "/api/lists",
+      url: "/api/groups",
       // clarify on data format
-      data: JSON.stringify(list)
+      data: JSON.stringify(group)
     })
     .then(function(res) {
       return res.data
     })
   }
-  var deleteList = function (listid) {
+  var deleteGroup = function (groupid) {
     return $http({
       method: "DELETE",
-      url: "/api/lists/" + listid
+      url: "/api/groups/" + groupid
     })
   }
 
   // added because server route looks to handle, not sure if we will need it
-  var updateStatus = function (listId, status) {
+  var updateStatus = function (groupId, status) {
     return $http({
       method: "POST",
       url: "api/status",
       // need to decide on format for this call
-      data: listId, status
+      data: groupId, status
     })
   }
 
   // Used when Updating Job Deliverer_id
-  var updateList = function (list) {
+  var updateGroup = function (group) {
     return $http({
       method: "PUT",
-      url: "/api/lists",
-      data: list
+      url: "/api/groups",
+      data: group
     })
   }
 
   return {
-    getLists: getLists,
-    getAllLists: getAllLists,
-    getOneList: getOneList,
-    newList: newList,
+    getGroups: getGroups,
+    getAllGroups: getAllGroups,
+    getOneGroup: getOneGroup,
+    newGroup: newGroup,
     updateStatus: updateStatus,
-    newList: newList,
-    updateList: updateList,
-    deleteList: deleteList
+    newGroup: newGroup,
+    updateGroup: updateGroup,
+    deleteGroup: deleteGroup
   }
 
 })
@@ -156,7 +156,7 @@ angular.module("crowdcart.services",[])
   //get all events for a specific group
   // get all events for specific user; since with routing to decide if that's the right meaning
   var getEvents = function (id) {
-     console.log("getting all events for this list id ", id);
+     console.log("getting all events for this group id ", id);
     var user = {userid: id}
     // console.log(JSON.stringify(user))
     return $http({
@@ -165,12 +165,12 @@ angular.module("crowdcart.services",[])
       // data: JSON.stringify(user)
     })
     .then(function(res) {
-      // console.log('lists: ', res.data)
+      // console.log('groups: ', res.data)
       return res.data;
     })
   }
 
-  // get one list when given eventid
+  // get one group when given eventid
   var getOneEvent = function(eventid) {
     return $http({
       method: "GET",

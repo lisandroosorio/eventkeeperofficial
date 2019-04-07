@@ -3,7 +3,7 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>List Name</th>
+          <th>Group Name</th>
           <th>Location</th>
           <th>Due</th>
           <th></th>
@@ -13,8 +13,8 @@
         <tr ng-repeat="event in data.events " >
           <td>{{ event.name }}</td>
           <td>{{ this.event._id }}</td>
-          <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
-          <td><span am-time-ago="list.due_at"></span></td>
+          <td>{{ group.delivery_address.city }}, {{ group.delivery_address.state }}</td>
+          <td><span am-time-ago="group.due_at"></span></td>
           <td><a ng-click="deleteEvent(this.event._id, $index)" class="btn btn-primary btn-sm active">Delete Event</a></td> 
         </tr>
       </tbody>

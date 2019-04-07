@@ -1,6 +1,6 @@
-<!-- individual list item with details -->
-<div class="listdetail contents-container">
-  <h2 class="detail-header"><span>{{ displayList.name }}</span><span>${{ displayList.offer_price }}</span><span>Due <span am-time-ago="displayList.due_at"></span></span></h2>
+<!-- individual group item with details -->
+<div class="groupdetail contents-container">
+  <h2 class="detail-header"><span>{{ displayGroup.name }}</span><span>${{ displayGroup.offer_price }}</span><span>Due <span am-time-ago="displaygroup.due_at"></span></span></h2>
 
   <div class="delivery-address">
     <uib-accordion>
@@ -8,9 +8,9 @@
         <uib-accordion-heading>
           Delivery Address <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
         </uib-accordion-heading>
-          <div>{{ this.list.name }}</div>
-          <div>{{ displayList._id }}, {{ displayList.delivery_address.state }}</div>
-          <div>{{ displayList.delivery_address.zip_code }}</div>
+          <div>{{ this.group.name }}</div>
+          <div>{{ displayGroup._id }}, {{ displayGroup.delivery_address.state }}</div>
+          <div>{{ displayGroup.delivery_address.zip_code }}</div>
       </div>
     </uib-accordion>
   </div>
@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="item in displayList.items">
+            <tr ng-repeat="item in displayGroup.items">
               <td>{{ item.item_name }}</td>
               <td>{{ item.quantity }}</td>
               <td>{{ item.unite_price }}</td>

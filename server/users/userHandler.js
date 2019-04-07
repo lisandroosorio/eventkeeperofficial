@@ -1,4 +1,4 @@
-// require jwt, helper, User, List
+// require jwt, helper, User, group
 var jwt = require('jwt-simple');
 var helper = require('../config/helpers.js');
 var User = require('./userModel.js');

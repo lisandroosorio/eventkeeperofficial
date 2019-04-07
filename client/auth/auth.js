@@ -17,7 +17,7 @@ angular.module('crowdcart.auth', [])// make an auth module
         $window.localStorage.setItem('crowdcartusercity', data.address.city);
         $window.localStorage.setItem('crowdcartuserstate', data.address.state);
         $window.localStorage.setItem('crowdcartuserzip', data.address.zip_code);
-        $location.path('/mylists');
+        $location.path('/mygroups');
       })
       .catch(function (error) {
         console.error(error);
@@ -30,7 +30,7 @@ angular.module('crowdcart.auth', [])// make an auth module
         $window.localStorage.setItem('crowdcarttoken', data.token);
         // saving username to localstorage
         $window.localStorage.setItem('crowdcartuser', data.userid);
-        $location.path('/mylists');
+        $location.path('/mygroups');
       })
       .catch(function (error) {
         console.error(error);
