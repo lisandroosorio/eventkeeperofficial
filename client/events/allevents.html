@@ -10,16 +10,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="event in data.events " >
+        <tr ng-repeat="event in data.allEvents " >
           <td>{{ event.name }}</td>
           <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
           <td><span am-time-ago="list.due_at"></span></td>
-         <!-- <td><a ng-click="deleteEvent(this.event._id, $index)" class="btn btn-primary btn-sm active">Delete Event</a></td> -->
+        
         </tr>
       </tbody>
     </table>
-    <div><a href='#/createnewevent' class="btn btn-primary btn-sm active">Add Event</a></div>
-    <div><a ng-click = "showallEvents()" class="btn btn-primary btn-sm active"> Show all events?</a></div>
+    
    
   </div>
 </div>

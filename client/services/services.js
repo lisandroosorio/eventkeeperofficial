@@ -207,7 +207,7 @@ angular.module("crowdcart.services",[])
       return res.data
     })
   }
-  var deletEvent = function (eventid) {
+  var deleteEvent = function (eventid) {
     return $http({
       method: "DELETE",
       url: "/api/events/" + eventid

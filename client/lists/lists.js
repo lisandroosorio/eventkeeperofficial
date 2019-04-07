@@ -11,20 +11,23 @@ angular.module("crowdcart.lists", ["angularMoment"])
   console.log('HELLLLO1!');
 
 
-  // store userid into local storage (same level as auth token)
+  // store userid/gorupid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
   $scope.street = $window.localStorage.getItem('crowdcartuserstreet');
   $scope.state = $window.localStorage.getItem('crowdcartuserstate');
   $scope.city = $window.localStorage.getItem('crowdcartusercity');
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
-
+  
 
   console.log("we are currently with user "+ $scope.userid);
   if ($routeParams.listid) { //this is what sends the list type to the user
+    $scope.currentlist = $routeParams.listid;
+    $window.localStorage.setItem('currentEvent', $scope.currentlist);
     Lists.getOneList($routeParams.listid)
       .then(function (list) {
         $scope.displayList = list
       })
+      console.log($window.localStorage.getItem('currentEvent'));
   }
 
   Lists.getLists($scope.userid) //gets all the lists right away for the user
@@ -83,6 +86,12 @@ $scope.showallZ = function(){
       });
 
 }
+$scope.enter = function(listid) {
+  // simple redirect 
+  $location.path("/myevents/")
+
+}
+
   $scope.displayDetail = function(listid) {
     // simple redirect 
     $location.path("/listdetail/" + listid)
