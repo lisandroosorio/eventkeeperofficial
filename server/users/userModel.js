@@ -14,7 +14,11 @@ var UserSchema = new mongoose.Schema({
     city: String,
     state: String,
     zip_code: Number
-  }
+  },
+  //used for holding the groups you own
+  
+
+
 });
 
 UserSchema.methods.comparePasswords = function(enteredPassword, callback) {

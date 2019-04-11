@@ -118,6 +118,17 @@ angular.module("crowdcart.services",[])
       url: "/api/groups/" + groupid
     })
   }
+  var addUser = function (groupid,userid) //here this calls the post for the api/groups
+  {
+    var str = '{"user":"' + userid + '"}';
+    var obj = JSON.parse(str);
+    return $http({
+      method: "PUT",
+      url: "/api/addtoGroup/" + groupid,
+      // need to decide on format for this call
+      data: obj
+    })
+  }
 
   // added because server route looks to handle, not sure if we will need it
   var updateStatus = function (groupId, status) {
@@ -139,6 +150,7 @@ angular.module("crowdcart.services",[])
   }
 
   return {
+    addUser :addUser,
     getGroups: getGroups,
     getAllGroups: getAllGroups,
     getOneGroup: getOneGroup,

@@ -20,8 +20,7 @@
           <td ng-click="displayDetail(this.group._id)">{{ group.description }}, {{ group.location_address.state }}</td>
           <td ng-click="displayDetail(this.group._id)"><span am-time-ago="group.due_at"></span></td>
           <td><a ng-click="deleteGroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Delete Group</a></td>
-          <td ng-if="!group.deliverer_id">Open</td>
-          <td ng-if="!!group.deliverer_id">In Work!</td>
+          <td><a ng-click="addUser(this.group._id)" class="btn btn-primary btn-sm active">Add Group</a></td>
         </tr>
       </tbody>
     </table>

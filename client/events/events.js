@@ -9,11 +9,13 @@ angular.module("crowdcart.events", ["angularMoment"])
   $scope.event.items = [];
 
   $scope.groupid = $window.localStorage.getItem('currentEvent');
+$scope.groupidName = $window.localStorage.getItem('currentNameEvent');
 
  
 
   console.log("thifs screen ");
    console.log($scope.groupid);
+   console.log($scope.groupidName);
 
 
   Events.getEvents($scope.groupid) //gets all the groups right away for the user

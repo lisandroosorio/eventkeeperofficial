@@ -7,6 +7,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.group = {};
   $scope.group.location_address = {};
   $scope.group.items = [];
+  $scope.usertmp = {};
 
   console.log('HELLLLO1!');
 
@@ -20,9 +21,15 @@ angular.module("crowdcart.groups", ["angularMoment"])
   
 
   console.log("we are currently with user "+ $scope.userid);
-  if ($routeParams.groupid) { //this is what sends the group type to the user
+  if ($routeParams.groupid) { //this is what sends the group type to the user, tis is what displays the groups
     $scope.currentgroup = $routeParams.groupid;
-    $window.localStorage.setItem('currentEvent', $scope.currentgroup);
+    $scope.currentname = $routeParams.name;
+
+    $window.localStorage.setItem('currentEvent', $scope.currentgroup);   
+    $window.localStorage.setItem('currentNameEvent',$scope.currentname);
+    
+
+
     Groups.getOneGroup($routeParams.groupid)
       .then(function (group) {
         $scope.displayGroup = group
@@ -90,6 +97,23 @@ $scope.enter = function(groupid) {
   // simple redirect 
   $location.path("/myevents/")
 
+}
+$scope.addUser = function(groupid) {  //adds the user needs to be added somewhere else too
+
+  console.log(groupid);
+
+    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
+    console.log($scope.usertmp);
+
+  // Update DB list with new deliverer_id
+  Groups.addUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
+    .then(function () {
+      //console.log("added user")
+      $location.path('/mygroups');
+    })
+    .catch(function (error) {
+      console.log(error); 
+    });
 }
 
   $scope.displayDetail = function(groupid) {

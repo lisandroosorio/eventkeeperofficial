@@ -16,6 +16,7 @@
           <td>{{ group.name }}, {{ group.location_address.state }}</td>
           <td><span am-time-ago="group.due_at"></span></td>
           <td><a ng-click="deleteEvent(this.event._id, $index)" class="btn btn-primary btn-sm active">Delete Event</a></td> 
+          
         </tr>
       </tbody>
     </table>

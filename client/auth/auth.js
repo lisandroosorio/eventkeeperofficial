@@ -12,6 +12,7 @@ angular.module('crowdcart.auth', [])// make an auth module
         console.log(data.address.street);
         //Save token, user_id and address to local storage
         $window.localStorage.setItem('crowdcarttoken', data.token);
+        //this is the token that is used by the user 
         $window.localStorage.setItem('crowdcartuser', data.userid);
         $window.localStorage.setItem('crowdcartuserstreet', data.address.street);
         $window.localStorage.setItem('crowdcartusercity', data.address.city);

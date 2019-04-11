@@ -22,7 +22,12 @@ module.exports = function(app, express){
         app.post('/api/signin', userHandler.signin);
         // POST - signup
         app.post('/api/signup', userHandler.signup);
-      
+        //will need to craete an api call for update user which will be called whenever the array gets increasde
+        //api call for updating user 
+        
+
+        app.put('/api/addtoGroup/:id', groupHandler.addUser);
+
         // POST - addgroup
         app.post('/api/groups', groupHandler.addGroup);
         // GET - getGroup (single Group)
@@ -30,7 +35,7 @@ module.exports = function(app, express){
         // GET - getGroups (users groups)
         app.get('/api/groups/:id', groupHandler.getGroups);
         // PUT - for updating group
-        app.put('/api/groups', groupHandler.updateGroup);
+       
         // DELETE - deletes a single group
         app.delete('/api/groups/:id', groupHandler.deleteGroup);
         // GET - getAllGroups

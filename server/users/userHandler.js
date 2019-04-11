@@ -42,7 +42,25 @@ module.exports = {
       }
     });
   },
+  updateUser: function(req, res){ //currenly only works for user 1 
+    
+    var id = req.body.user_id;
+   
 
+    User.findOne({'user_id': id}, function(err, user){
+          if (err) {
+            console.log('Group Findone ERROR ****** ');
+            console.error(err);
+          }
+          user.groupNum = req.body.groupsNum;
+          user.email = req.body.email;
+
+          user.save();
+          res.json(user);
+        }
+    );
+
+  },
   // signup method
   signup: function(req, res){
     var email = req.body.email;

@@ -12,6 +12,7 @@ var GroupSchema = new mongoose.Schema({
   creator_id: String,
   deliverer_id: String,
 
+  isFollowedBy: [],
 
   description: String, //new
   school : String,  //new 

@@ -26,28 +26,43 @@ module.exports = {
   },
 
    // updateGroup method
-  updateGroup: function(req, res){
-    var id = req.body.creator_id;
-    var due_at = req.body.due_at;
+  addUser: function(req, res){ // here we wil do something that group 
+    
+    var id = req.params.id;
+
+    var groupid = req.body.groupid;
+    var userid = req.body.userid;
+    var groupid2 = req.params.groupid;
+    var userid3 = req.params.userid;
     var name = req.body.name;
 
+   
     // var conditions = {'creator_id': id, 'due_at': due_at, 'name': name, 'deliverer_id': ''};
     // var update = {'deliverer_id': req.body.deliverer_id};
 
-    // Group.update(conditions, update)
+    // Group.update(conditions, update) use this as refercen 
+  
 
-    Group.findOne({'creator_id': id, 'due_at': due_at, 'name': name}, function(err, group){
+    Group.findOne({'_id': id   }, function(err, group)
+        {
           if (err) {
             console.log('Group Findone ERROR ****** ');
             console.error(err);
           }
-          group.deliverer_id = req.body.deliverer_id;
-          group.save();
+          Group.update({ "_id": req.params.id  },
+          { $addToSet: { "isFollowedBy": req.body.user } }, function (err, d) { //finds this groupid and then goes into it and puts the tag into the array
+              if (!d.nModified) {
+                 // same value entered won't add to the array
+              } else {
+                  // new value entered and will add to the array
+              }
+      });
           res.json(group);
         }
     );
 
   },
+ 
 
   // deleteGroup method
   deleteGroup: function(req, res){
@@ -102,11 +117,13 @@ module.exports = {
       });
   },
 
-
   // updateStatus method
   updateStatus: function(req, res){
-    var groupid = req.body.groupid;
-    var userid = req.body.userid;
+    var groupid = req.params.groupid;
+    var userid = req.params.userid;
+    console.log(groupid);
+    console.log(userid);
+
 
     Group.findOne({'_id': groupid}, function(err, group){
       if (err) { // notifies if error is thrown
