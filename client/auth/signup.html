@@ -14,40 +14,30 @@
 <body>
     <div id="header-wrapper">
         <div id="header" class="container">
-        
+            <div id="logo">
+                <h1><a href="#">Event Keeper</a></h1>
+              </div>
             <div class="signup-outer">
                 <div class="signup-inner">
                   <form name="signup-form" ng-submit="signup()">
-                    <div class="signup-field"><input type="text" ng-model="user.username" placeholder="Username"></div>
-                    <div class="signup-field"><input type="email" ng-model="user.email" placeholder="Email"></div>
-                    <div class="signup-field"><input type="text" ng-model="user.name.first" placeholder="First Name"></div>
-                    <div class="signup-field"><input type="text" ng-model="user.name.last" placeholder="Last Name"></div>
-                    <div class="signup-field"><input type="password" ng-model="user.password" placeholder="Password"></div>
-                    <div class="signup-field"><input type="text" ng-model="user.address.street" placeholder="Street Address"></div>
-                    <div class="signup-field"><input type="text" ng-model="user.address.city" placeholder="City"></div>
-                    <div class="signup-field"><input type="text" ng-model="user.address.state" placeholder="State"></div>
-                    <div class="signup-field"><input type="number" ng-model="user.address.zip_code" placeholder="ZIP"></div>
-                    <button>Sign Up</button>
+                    <div class="signup-field"><input type="text" ng-model="user.username" placeholder="Username" style="color: black"></div>
+                    <div class="signup-field"><input type="email" ng-model="user.email" placeholder="Email" style="color: black"></div>
+                    <div class="signup-field"><input type="text" ng-model="user.name.first" placeholder="First Name" style="color: black"></div>
+                    <div class="signup-field"><input type="text" ng-model="user.name.last" placeholder="Last Name" style="color: black"></div>
+                    <div class="signup-field"><input type="password" ng-model="user.password" placeholder="Password" style="color: black"></div>
+                    <div class="signup-field"><input type="text" ng-model="user.address.street" placeholder="Street Address" style="color: black"></div>
+                    <div class="signup-field"><input type="text" ng-model="user.address.city" placeholder="City" style="color: black"></div>
+                    <div class="signup-field"><input type="text" ng-model="user.address.state" placeholder="State" style="color: black"></div>
+                    <div class="signup-field"><input type="number" ng-model="user.address.zip_code" placeholder="ZIP" style="color: black"></div>
+                    <button class="signin-button">Sign Up</button>
                   </form>
                   <div>
-                    <a href="#/signin" style="color: white">Already have an account? <strong>Signin</strong>...</a>
+                    <a href="#/signin" style="color: white">Already have an account? <strong>Sign In</strong>...</a>
                   </div>
                 </div>
               </div>
-
-
-
-        
         </div>  
     </div>
-
-
-
-
-
-
-
-
 </div>
 <div id="copyright" class="container">
 	<p>Group 14 &copy; 2019</p>
