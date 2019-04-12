@@ -1,16 +1,14 @@
 
 <html ng-app="crowdcart">
   <head>
-    <title>time for some events got it running woo!!!!!!</title>
+    <title>Event Keeper</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="AppController">
     <div class="top-nav">
       <div class="top-logo">
-        
       </div>
-     
       <div class="top-nav-right" ng-if="hasSession">
         <span>
           <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Log Out</a>
@@ -18,8 +16,8 @@
       </div>
     </div>
 
-  <div class="jumbotron" ng-if="!hasSession"> <!--If there is not a session display this message in big letters-->
-  <h1 class="display-3">Welcome to Event keeper!!</h1>
+  <!--<div class="jumbotron" ng-if="!hasSession"> If there is not a session display this message in big letters-->
+  <!--<h1 class="display-3">Welcome to Event keeper!!</h1> -->
  
  
 </div>
