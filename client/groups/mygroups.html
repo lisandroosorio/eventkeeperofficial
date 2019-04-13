@@ -1,8 +1,4 @@
 <!-- group view for mygroup -->
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="https://www.w3.org/1999/xhtml">
@@ -19,9 +15,8 @@
 <body>
 	<h1>My Groups</h1>
     <div id="mygroupsback">
-
       <div class="mygroup contents-container">
-        <h3>My Groups</h3>
+        <div id="mgroupstable"></div>
           <table class="table table-hover">
             <thead>
               <tr class="header">
@@ -34,14 +29,15 @@
             </thead>
             <tbody>
               <tr class="group" ng-repeat="group in data.groups | orderBy:'due_at' | filter:search">
-                <td ng-click="displayDetail(this.group._id)">{{ group.name }}</td>
-                <td ng-click="displayDetail(this.group._id)">{{ group.description }}, {{ group.location_address.state }}</td>
-                <td ng-click="displayDetail(this.group._id)"><span am-time-ago="group.due_at"></span></td>
+                <td ng-click="displayDetail(this.group._id)" cursor: pointer>{{ group.name }}</td>
+                <td ng-click="displayDetail(this.group._id)" cursor: pointer>{{ group.description }}, {{ group.location_address.state }}</td>
+                <td ng-click="displayDetail(this.group._id)" cursor: pointer><span am-time-ago="group.due_at"></span></td>
                 <td><a ng-click="deleteGroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Delete Group</a></td>
                 <td><a ng-click="addUser(this.group._id)" class="btn btn-primary btn-sm active">Add Group</a></td>
               </tr>
             </tbody>
           </table>
+        </div>
           <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add Group</a></div>
           <div><a ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groupst?</a></div>
         </div>
