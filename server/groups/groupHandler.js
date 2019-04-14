@@ -107,7 +107,7 @@ removeUser: function(req,res){
     });
   },
 
-  // getGroups method
+  // getGroups that you are an owner of  method
   getOwnedGroups: function(req, res){
     // var userid = req.body.userid;
 
@@ -120,7 +120,7 @@ removeUser: function(req,res){
         res.json(groups);
       });
   },
-  getGroups: function(req, res){
+  getGroups: function(req, res){ //get groups you follow
     // var userid = req.body.userid;
 
     // temporarily passing through url

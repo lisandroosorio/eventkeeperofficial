@@ -2,7 +2,10 @@
 	{
 		height: 100%;
 	}
-	
+	@viewport {
+		width: device-width ;
+		zoom: 1.0 ;
+	  }
 	body
 	{
 		margin: 0px;
@@ -11,7 +14,7 @@
 		font-family: 'Didact Gothic', sans-serif;
 		font-size: 12pt;
 		font-weight: 200;
-		color: #FFF;
+		color: white;
 	}
 	
 	
@@ -236,7 +239,7 @@
 	
 	.box1,
 	.box2,
-	.box3,
+	.box3
 	{
 		float: left;
 		margin-right: 20px;
