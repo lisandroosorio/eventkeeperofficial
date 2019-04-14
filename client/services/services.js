@@ -74,6 +74,20 @@ angular.module("crowdcart.services",[])
       return res.data;
     })
   }
+  var getOwnedGroups = function (id) {
+    // console.log("getting all Groups for", id)
+    var user = {userid: id}
+    // console.log(JSON.stringify(user))
+    return $http({
+      method: "GET",
+      url: "/api/getOwnedgroups/" + id
+      // data: JSON.stringify(user)
+    })
+    .then(function(res) {
+      // console.log('groups: ', res.data)
+      return res.data;
+    })
+  }
 
   // get one group when given groupid
   var getOneGroup = function(groupid) {
@@ -129,6 +143,18 @@ angular.module("crowdcart.services",[])
       data: obj
     })
   }
+  var removeUser = function (groupid,userid) //here this calls the post for the api/groups
+  {
+    var str = '{"user":"' + userid + '"}';
+    var obj = JSON.parse(str);
+    return $http({
+      method: "PUT",
+      url: "/api/removefromGroup/" + groupid,
+      // need to decide on format for this call
+      data: obj
+    })
+  }
+  
 
   // added because server route looks to handle, not sure if we will need it
   var updateStatus = function (groupId, status) {
@@ -151,6 +177,7 @@ angular.module("crowdcart.services",[])
 
   return {
     addUser :addUser,
+    removeUser: removeUser,
     getGroups: getGroups,
     getAllGroups: getAllGroups,
     getOneGroup: getOneGroup,
@@ -158,7 +185,9 @@ angular.module("crowdcart.services",[])
     updateStatus: updateStatus,
     newGroup: newGroup,
     updateGroup: updateGroup,
+    getOwnedGroups : getOwnedGroups,
     deleteGroup: deleteGroup
+
   }
 
 })
