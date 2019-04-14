@@ -11,6 +11,11 @@
       </div>
       <div class="top-nav-right" ng-if="hasSession">
         <span>
+            <mat-tab-group mat-align-tabs="end">
+                <mat-tab label="First">My Groups</mat-tab>
+                <mat-tab label="Second">Upcoming Events</mat-tab>
+                <mat-tab label="Third">Search</mat-tab>
+              </mat-tab-group>
           <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Log Out</a>
         </span>
       </div>
