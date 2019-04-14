@@ -10,10 +10,10 @@ var EventSchema = new mongoose.Schema({
 
   group_id: String, //related to the group it is assocated with 
   
-  eventdes: String,
+  description: String,
   
   type: String,
-  privateAccess : Boolean,
+  private : Boolean,
 
   //If location address is different from group creator's address
   event_address: {

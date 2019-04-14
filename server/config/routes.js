@@ -7,13 +7,7 @@ module.exports = function(app, express){
 
 
 
-
-  // TODO:  Coordinate with frontend on
-  //        the request url names ('/api/...')
-
-  // POST - signin
-
- app.get('/test', function(req, res){
+        app.get('/test', function(req, res){
         res.json('Testing')
         });
 
@@ -24,8 +18,9 @@ module.exports = function(app, express){
         app.post('/api/signup', userHandler.signup);
         //will need to craete an api call for update user which will be called whenever the array gets increasde
         //api call for updating user 
-        
-
+        //removes a user from a group
+        app.put('/api/removefromGroup/:id', groupHandler.removeUser);
+        //radds a user  to a group
         app.put('/api/addtoGroup/:id', groupHandler.addUser);
 
         // POST - addgroup
@@ -35,12 +30,14 @@ module.exports = function(app, express){
         // GET - getGroups (users groups)
         app.get('/api/groups/:id', groupHandler.getGroups);
         // PUT - for updating group
-       
+        app.put('/api/groups', groupHandler.updateGroup);
         // DELETE - deletes a single group
         app.delete('/api/groups/:id', groupHandler.deleteGroup);
         // GET - getAllGroups
         app.get('/api/crowd', groupHandler.getAllGroups);
-        
+        //GET - get owned groups 
+        app.get('/api/ownedGroups/:id',groupHandler.getOwnedGroups);
+
          // POST - addEvent
          app.post('/api/events', eventHandler.addEvent);
          // GET - getEvent (single Event)

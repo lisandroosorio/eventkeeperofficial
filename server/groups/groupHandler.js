@@ -28,20 +28,7 @@ module.exports = {
    // updateGroup method
   addUser: function(req, res){ // here we wil do something that group 
     
-    var id = req.params.id;
-
-    var groupid = req.body.groupid;
-    var userid = req.body.userid;
-    var groupid2 = req.params.groupid;
-    var userid3 = req.params.userid;
-    var name = req.body.name;
-
-   
-    // var conditions = {'creator_id': id, 'due_at': due_at, 'name': name, 'deliverer_id': ''};
-    // var update = {'deliverer_id': req.body.deliverer_id};
-
-    // Group.update(conditions, update) use this as refercen 
-  
+    var id = req.params.id; //this is the value passed by the function by the parameters the url has
 
     Group.findOne({'_id': id   }, function(err, group)
         {
@@ -62,7 +49,31 @@ module.exports = {
     );
 
   },
- 
+removeUser: function(req,res){
+
+  var id = req.params.id;
+
+  Group.findOne({'_id': id   }, function(err, group)
+  {
+    if (err) {
+      console.log('Group Findone ERROR ****** ');  //checks if this group even exists
+      console.error(err);
+    }
+    Group.update({'_id': id}, 
+    { $pull: {  "isFollowedBy": req.body.user } }, function (err, result){
+      if(err) {
+          console.log("error removing user from group. err: ", err);
+        //  helper.sendError(err, req, res);
+      } else {
+          console.log("Successfully removed user");
+         res.json(group);
+      }
+     });
+   
+  }
+);
+
+ },
 
   // deleteGroup method
   deleteGroup: function(req, res){
@@ -97,13 +108,26 @@ module.exports = {
   },
 
   // getGroups method
+  getOwnedGroups: function(req, res){
+    // var userid = req.body.userid;
+
+    // temporarily passing through url
+    var userid = req.params.id // we need this as this is the user id that will be used
+
+
+    Group.find({'creator_id': userid})
+      .then(function(groups){
+        res.json(groups);
+      });
+  },
   getGroups: function(req, res){
     // var userid = req.body.userid;
 
     // temporarily passing through url
-    var userid = req.params.id
+    var userid = req.params.id // we need this as this is the user id that will be used
 
-    Group.find({'creator_id': userid})
+
+    Group.find({'isFollowedBy': userid})
       .then(function(groups){
         res.json(groups);
       });
@@ -116,7 +140,48 @@ module.exports = {
         res.json(groups);
       });
   },
+  //updates the groups information if the user is in fact the owner of the group
 
+  updateGroup: function(req, res){
+    var id = req.body.creator_id;
+  
+    var groupId = req.body._id;
+    
+
+
+    Group.findOne({'creator_id': id,  '_id': groupId}, function(err, group){
+          if (err) {
+            console.log('Group Findone ERROR ****** ');
+            console.error(err);
+          }
+          if(req.body.school != null)
+          {
+            group.school = req.body.school;
+          }
+          if(req.body.description != null)
+          {
+            group.description = req.body.description; //new
+          } 
+         if(req.body.name != null)
+          {
+            group.name = req.body.name;
+          } 
+          if(req.body.private != null)
+          {
+            group.private = req.body.private;
+          } 
+          if(req.body.location_address != null)
+          {
+            group.location_address = req.body.location_address;
+          } 
+          
+ 
+          group.save();
+          res.json(group);
+        }
+    );
+
+  },
   // updateStatus method
   updateStatus: function(req, res){
     var groupid = req.params.groupid;

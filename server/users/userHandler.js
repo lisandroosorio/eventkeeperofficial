@@ -44,16 +44,16 @@ module.exports = {
   },
   updateUser: function(req, res){ //currenly only works for user 1 
     
-    var id = req.body.user_id;
+    var id = req.params.id;  //gets userid 
    
 
     User.findOne({'user_id': id}, function(err, user){
           if (err) {
-            console.log('Group Findone ERROR ****** ');
+            console.log('user Findone ERROR ****** ');
             console.error(err);
           }
-          user.groupNum = req.body.groupsNum;
-          user.email = req.body.email;
+
+          //here is where we get json string thing
 
           user.save();
           res.json(user);
@@ -61,6 +61,7 @@ module.exports = {
     );
 
   },
+  
   // signup method
   signup: function(req, res){
     var email = req.body.email;

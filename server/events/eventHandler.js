@@ -25,26 +25,7 @@ module.exports = {
       }
     });
   },
-
-   // updateEvent method
-  updateEvent: function(req, res){
-    var id = req.body.group_id;
-    var due_at = req.body.due_at;
-    var name = req.body.name;
-
-
-    Event.findOne({'group_id': id, 'due_at': due_at, 'name': name}, function(err, Event){
-          if (err) {
-            console.log('Event Findone ERROR ****** ');
-            console.error(err);
-          }
-          
-          Event.save();
-          res.json(Event);
-        }
-    );
-
-  },
+ 
 
   // deleteEvent method
   deleteEvent: function(req, res){
@@ -59,7 +40,46 @@ module.exports = {
       }
     });
   },
+  updateEvent: function(req, res){
+    var id = req.body.group_id;
+    
+    var eventId = req.body._id;
+    
 
+
+    Event.findOne({'group_id': id,  '_id': eventId}, function(err, event){
+          if (err) {
+            console.log('event Findone ERROR ****** ');
+            console.error(err);
+          }
+          if(req.body.type != null)
+          {
+            event.type = req.body.type;
+          }
+          if(req.body.description != null)
+          {
+            event.description = req.body.description; //new
+          } 
+         if(req.body.name != null)
+          {
+            event.name = req.body.name;
+          } 
+          if(req.body.private != null)
+          {
+            event.private = req.body.private;
+          } 
+          if(req.body.event_address != null)
+          {
+            event.event_address = req.body.event_address;
+          } 
+          
+ 
+          event.save();
+          res.json(event);
+        }
+    );
+
+  },
   // getOneEvent method
   getOneEvent: function(req, res){
     var Eventid = req.params.id;
