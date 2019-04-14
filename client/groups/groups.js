@@ -109,12 +109,35 @@ $scope.addUser = function(groupid) {  //adds the user needs to be added somewher
   Groups.addUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
     .then(function () {
       //console.log("added user")
-      $location.path('/mygroups');
+      Groups.getGroups($scope.userid)
+      .then(function (groups) {
+        $scope.data.groups = groups;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
     })
     .catch(function (error) {
       console.log(error); 
     });
 }
+$scope.removeUser = function(groupid,idx) {  //adds the user needs to be added somewhere else too
+
+  console.log(groupid);
+
+    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
+    console.log($scope.usertmp);
+
+  // Update DB list with new deliverer_id
+  Groups.removeUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
+  .then(function () {
+    $scope.data.groups.splice(idx, 1)
+  })
+    .catch(function (error) {
+      console.log(error); 
+    });
+}
+
 
   $scope.displayDetail = function(groupid) {
     // simple redirect 
