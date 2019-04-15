@@ -49,7 +49,7 @@
                 <input type="email" id = "holdingemail" ng-model="user.tempemail" class="form-control form-control-lg" placeholder="Enter your email...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                <button type="submit" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#modalSignupForm">Sign up!</button>
               </div>
             </div>
           </form>
@@ -93,6 +93,69 @@ aria-hidden="true">
 		</div>
 		<div class="modal-footer d-flex justify-content-center">
 			<button class="btn btn-block btn-primary">Login</button>
+		</div>
+	</form>
+	</div>
+</div>
+</form>
+</div>
+
+<div class="modal fade" id="modalSignupForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
+		<div class="modal-header text-center">
+			<h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+			<button type="button" id="closeit" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<form name="signup-form" id="testing" ng-submit="signup()">
+		<div class="modal-body mx-3">
+      
+      <div class="md-form mb-5">
+				<input type="email" ng-model="user.email" id="defaultForm-email" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+			</div>
+			
+			<div class="md-form mb-4">
+				<input type="text" ng-model="user.name.first" id="defaultForm-first" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-first">First name</label>
+      </div>
+      
+      <div class="md-form mb-4">
+				<input type="text" ng-model="user.name.last" id="defaultForm-last" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-last">Last name</label>
+      </div>
+      
+      <div class="md-form mb-4">
+				<input type="password" ng-model="user.password" id="defaultForm-pass" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+      </div>
+      
+      <div class="md-form mb-4">
+				<input type="text" ng-model="user.address.street" id="defaultForm-street" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-street">Street</label>
+      </div>
+      
+      <div class="md-form mb-4">
+				<input type="text" ng-model="user.address.city" id="defaultForm-city" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-city">City</label>
+      </div>
+      
+      <div class="md-form mb-4">
+				<input type="text" ng-model="user.address.state" id="defaultForm-state" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-state">State</label>
+      </div>
+      
+      <div class="md-form mb-4">
+				<input type="number" ng-model="user.address.zip_code" id="defaultForm-zip_code" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-zip_code">Zip code</label>
+			</div>
+			
+		</div>
+		<div class="modal-footer d-flex justify-content-center">
+			<button class="btn btn-block btn-primary">Submit</button>
 		</div>
 	</form>
 	</div>
