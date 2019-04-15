@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+  
+    <title>Event Keeper</title>
+
+    <!-- Bootstrap core CSS -->
+   
+  </head>
+
+  <body>
+      
+  
+
+    <main role="main">
+
+     
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4" ng-repeat="group in data.groups">
+              <div class="card mb-4 box-shadow">
+               
+                <div class="card-body">
+                  
+                  <p class="card-text">{{group.name}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
+                      <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      {{data}}
+    </div>
+    
+    
+    
+    
+    
+    
+    <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add Group</a></div>
+    <div><a ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groupst?</a></div>
+  </div>
+    </main>
+
+   
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    
+  
+
+<svg xmlns="http://www.w3.org/2000/svg" width="508" height="225" viewBox="0 0 508 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
+</html>
