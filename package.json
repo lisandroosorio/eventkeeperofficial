@@ -9,7 +9,6 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "angular-ui-bootstrap": "^3.0.6",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.4.3",
     "browser-sync": "^2.26.3",
