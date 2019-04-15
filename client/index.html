@@ -14,6 +14,27 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="AppController">
+    <div class="top-nav">
+        <div class="top-logo">
+        </div>
+        <div class="top-nav-right" ng-if="hasSession">
+          <span>
+              <mat-tab-group mat-align-tabs="end">
+                  <mat-tab label="First">My Groups</mat-tab>
+                  <mat-tab label="Second">Upcoming Events</mat-tab>
+                  <mat-tab label="Third">Search</mat-tab>
+                </mat-tab-group>
+            <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Log Out</a>
+          </span>
+        </div>
+      </div>
+  
+    <!--<div class="jumbotron" ng-if="!hasSession"> If there is not a session display this message in big letters-->
+    <!--<h1 class="display-3">Welcome to Event keeper!!</h1> -->
+   
+   
+  </div>
+  
 
     <div ng-view></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
