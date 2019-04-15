@@ -4,12 +4,9 @@
 
     <title>Event Keeper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
   
@@ -17,31 +14,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="AppController">
-    <div class="top-nav">
-      <div class="top-logo">
-      </div>
-      <div class="top-nav-right" ng-if="hasSession">
-        <span>
-            <mat-tab-group mat-align-tabs="end">
-                <mat-tab label="First">My Groups</mat-tab>
-                <mat-tab label="Second">Upcoming Events</mat-tab>
-                <mat-tab label="Third">Search</mat-tab>
-              </mat-tab-group>
-          <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Log Out</a>
-        </span>
-      </div>
-    </div>
-
-  <!--<div class="jumbotron" ng-if="!hasSession"> If there is not a session display this message in big letters-->
-  <!--<h1 class="display-3">Welcome to Event keeper!!</h1> -->
- 
- 
-</div>
-
-<!-- Carousel -->
-
-<!--           this can prob be handled with ng-view -->
-
 
     <div ng-view></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -57,13 +29,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
     
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="auth/auth.js"></script>
