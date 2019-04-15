@@ -113,7 +113,7 @@ aria-hidden="true">
 		<form name="signup-form" id="testing" ng-submit="signup()">
 		<div class="modal-body mx-3">
       
-      <div class="md-form mb-5">
+      <div class="md-form mb-4">
 				<input type="email" ng-model="user.email" id="defaultForm-email" class="form-control validate">
 					<label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
 			</div>
@@ -270,7 +270,7 @@ aria-hidden="true">
                 <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                <button type="submit" class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#modalSignupForm">Sign up!</button>
               </div>
             </div>
           </form>
