@@ -5,7 +5,8 @@ angular.module('crowdcart.auth', [])// make an auth module
   // $scope.user = {};
   // $scope.user.address = {};
   // $scope.user.name = {};
-
+ $scope.tempemail;
+ 
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (data) {
@@ -18,6 +19,7 @@ angular.module('crowdcart.auth', [])// make an auth module
         $window.localStorage.setItem('crowdcartusercity', data.address.city);
         $window.localStorage.setItem('crowdcartuserstate', data.address.state);
         $window.localStorage.setItem('crowdcartuserzip', data.address.zip_code);
+        document.getElementById("closeit").click();
         $location.path('/mygroups');
       })
       .catch(function (error) {
@@ -31,7 +33,9 @@ angular.module('crowdcart.auth', [])// make an auth module
         $window.localStorage.setItem('crowdcarttoken', data.token);
         // saving username to localstorage
         $window.localStorage.setItem('crowdcartuser', data.userid);
+        document.getElementById("closeit").click();
         $location.path('/mygroups');
+     
       })
       .catch(function (error) {
         console.error(error);

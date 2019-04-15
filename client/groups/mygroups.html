@@ -1,60 +1,65 @@
-<!-- group view for mygroup -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="https://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
-<title></title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
-<link href="/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/fonts.css" rel="stylesheet" type="text/css" media="all" />
-</head>
-<body>
-	<h1>My Groups</h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
-      <div class="mygroup contents-container" style="color:black;">
-        
-            <div class="location-address">
-                <uib-accordion>
-                  <div uib-accordion-group class="panel-default" is-open="status.open"ng-repeat="group in data.groups">
-                    <uib-accordion-heading>
-                      {{group.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                    </uib-accordion-heading>
-                    
-                    <td><a ng-click="displayDetail(this.group._id)">{{ group.name }}</a></td>
-                    <td ng-click="displayDetail(this.group._id)">{{ group.description }}, {{ group.location_address.state }}</td>
-                    <td ng-click="displayDetail(this.group._id)"><span am-time-ago="group.due_at"></span></td>
-                   <!--- <td><a ng-click="deleteGroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Delete Group</a></td>-->
-                   <div>
-                    <td><a ng-click="addUser(this.group._id)" class="btn btn-primary btn-sm active">Add Group</a></td>
-                    <td><a ng-click="removeUser(this.group._id,$index)" class="btn btn-primary btn-sm active">remove Group</a></td>
-                   </div>
-                  </div>
-                </uib-accordion>
-              </div>
-        </div>
-          <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add Group</a></div>
-          <div><a ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groupst?</a></div>
-        </div>
-        <!-- <pre>{{ displayGroup.name }}</pre> -->
-        
-      </div>
   
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <title>Album example for Bootstrap</title>
 
-<!--     load ui bootstraop below agular lib to prevent errors -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>
+    <!-- Bootstrap core CSS -->
+   
+  </head>
 
-    <!-- load momentJS (required for angular-moment) -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+  <body>
+      
+  
 
-    <!-- load angular-moment -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
+    <main role="main">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+     
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4" ng-repeat="group in data.groups">
+              <div class="card mb-4 box-shadow">
+               
+                <div class="card-body">
+                  
+                  <p class="card-text">{{group.name}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
+                      <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add Group</a></div>
+    <div><a ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groupst?</a></div>
+  </div>
+    </main>
+
+   
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    
+  
+
+<svg xmlns="http://www.w3.org/2000/svg" width="508" height="225" viewBox="0 0 508 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
 </html>

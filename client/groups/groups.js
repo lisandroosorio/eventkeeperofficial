@@ -46,7 +46,16 @@ angular.module("crowdcart.groups", ["angularMoment"])
     console.error(error);
   });
 
+  $(document).ready(function(){
 
+    console.log("document loaded");
+  
+  });
+  $(window).on("load",function(){
+  
+  console.log("window loaded");
+  
+  });
       
    var initialize = function () {
     

@@ -110,6 +110,7 @@ angular.module("crowdcart", [
       // console.log("NEXT: ", next);
       if (next.$$route && next.$$route.authenticate && !Auth.isAuthenticated()) {
         $location.path('/signin');
+       
       }
       $rootScope.hasSession = Auth.isAuthenticated();
     });
