@@ -91,17 +91,12 @@ p {
               	<div class="our-services-wrapper mb-60"> 
                     <div class="services-inner">
                      
-                      <div class="our-services-text" style="padding:10% 15% 10% 15%">
+                      <div class="our-services-text" style="padding:10% 15% 10% 15%"  style="overflow-y: scroll" style="height: 100px">
                         <h4>{{group.name}}</h4>
                         <uib-accordion close-others="oneAtATime">
                             
                             <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}" ng-repeat="event in getArray(index)" >
-                              {{eventer}}
-                            </div>
-                            <div uib-accordion-group class="mt-1" heading="Dynamic Body Content">
-                              <p>The body of the uib-accordion group grows to fit the contents</p>
-                              <button type="button" class="btn btn-secondary btn-sm" ng-click="addItem()">Add Item</button>
-                              <div ng-repeat="item in items">{{item}}</div>
+                              {{event.description}}
                             </div>
                           
                             
