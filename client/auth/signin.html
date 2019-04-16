@@ -92,7 +92,7 @@ aria-hidden="true">
 			
 		</div>
 		<div class="modal-footer d-flex justify-content-center">
-			<button class="btn btn-block btn-primary">Login</button>
+			<button class="btn btn-block btn-primary" input type="submit" id="register" value="Register" disabled="disabled">Login</button>
 		</div>
 	</form>
 	</div>
@@ -309,6 +309,25 @@ aria-hidden="true">
     $('modalLoginForm').modal('toggle'); //or  $('#IDModal').modal('hide');
     return false;
 });
+  </script>
+  <script>
+    (function() {
+    $('form > input').keyup(function() {
+
+        var empty = false;
+        $('form > input').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#register').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        } else {
+            $('#register').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+        }
+    });
+})()
   </script>
 </body>
 
