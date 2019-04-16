@@ -79,12 +79,12 @@ aria-hidden="true">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<form name="signin-form" id="signinid" ng-submit="signin()" onsubmit="return validateForm()" method="POST">
+		<form name="signin-form" id="signin-form" ng-submit="signin()" onsubmit="return validateForm()">
 		<div class="modal-body mx-3">
 			<div class="md-form mb-5">
 				<i class="fas fa-envelope prefix grey-text"></i>
-				<input type="email2" ng-model="user.email" id="defaultForm-email2" class="form-control validate">
-					<label data-error="wrong" data-success="right" for="defaultForm-email2">Email</label>
+				<input type="email" ng-model="user.email" id="defaultForm-email" class="form-control validate">
+					<label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
 			</div>
 			
 			<div class="md-form mb-4">
@@ -316,8 +316,8 @@ aria-hidden="true">
   <script>
     function validateForm() {
          
-         var first= document.forms["signinid"]["defaultForm-email2"].value;
-         var second = document.forms["signinid"]["defaultForm-password2"].value;
+         var first= document.forms["signin-form"]["email"].value;
+         var second = document.forms["signin-form"]["password"].value;
          var first2 = first;
          var first3 = second;
          var name = first2;
