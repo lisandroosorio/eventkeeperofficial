@@ -32,7 +32,7 @@
                 <div class="col-md-4" ng-repeat="group in data.groups | filter:searchText">
                   <div class="card mb-4 box-shadow">
                   
-                    <div class="card-body" ng-click="selectEvent({{group._id}})">
+                    <div class="card-body" ng-click="selectEvent(group._id)">
                       
                       <p class="card-text">{{group.name}}</p>
                       <div class="d-flex justify-content-between align-items-center">
@@ -66,7 +66,7 @@
                   </script>
                   
                   <uib-accordion>
-                    <div uib-accordion-group class="mt-1" heading="{{event.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="event in events | filter:'{{eventFilter}}'">
+                    <div uib-accordion-group class="mt-1" heading="{{event.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="event in events">
                       {{event[0].name}}
                     </div>
                   </uib-accordion>
