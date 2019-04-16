@@ -9,6 +9,7 @@ var EventSchema = new mongoose.Schema({
   due_at: Date,  //date that it takes place on 
 
   group_id: String, //related to the group it is assocated with 
+  date: String,
   
   description: String,
   isFavBy: [],

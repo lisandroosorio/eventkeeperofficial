@@ -5,8 +5,8 @@ angular.module("crowdcart", [
     "crowdcart.groups",
     "crowdcart.services",
     "ngRoute",
-    "ui.bootstrap"
-    // "angularMoment"
+    "ui.bootstrap",
+    "angularMoment"
   ])
   
   //config/routing
