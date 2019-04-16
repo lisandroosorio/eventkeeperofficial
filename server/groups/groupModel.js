@@ -13,12 +13,16 @@ var GroupSchema = new mongoose.Schema({
   deliverer_id: String,
 
   isFollowedBy: [],
-  isFavBy: [],
+
   description: String, //new
   school : String,  //new 
   private : Boolean,
 
-  
+  items : [],
+  total_price: Number,
+  offer_price: Number,
+  status: String,
+
 
   //If location address is different from Group creator's address
   location_address: {

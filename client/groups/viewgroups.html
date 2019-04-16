@@ -26,6 +26,7 @@
         <div class="container">
 
           <div class="row">
+<<<<<<< HEAD
             <div class="col-md-9" ng-repeat="group in data.groups">
               <div class="col-md-3" ng-repeat="group in data.groups">
                 <div class="card mb-3 box-shadow">
@@ -50,6 +51,25 @@
 
 
             </div>
+=======
+            <div class="col-md-4" ng-repeat="group in data.groups">
+              <div class="card mb-4 box-shadow">
+               
+                <div class="card-body">
+                  
+                  <p class="card-text">{{group.name}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
+                      <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+>>>>>>> parent of 1477338... e
           </div>
         </div>
       </div>
@@ -64,7 +84,11 @@
     
     
     <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add Group</a></div>
+<<<<<<< HEAD
     <div><a ng-click = "showallZ()" class="btn btn-primary btn-sm active"> get groups</a></div>
+=======
+    <div><a ng-click = "getGroups()" class="btn btn-primary btn-sm active"> get groups</a></div>
+>>>>>>> parent of 1477338... e
   </div>
     </main>
 

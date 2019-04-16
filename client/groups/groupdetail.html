@@ -17,7 +17,31 @@
     </div>
   
     
-    
+    <div class="items">
+      <uib-accordion>
+        <div uib-accordion-group class="panel-default" is-open="status.open">
+          <uib-accordion-heading>
+            Items <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+          </uib-accordion-heading>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Unit Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in displayGroup.items">
+                <td>{{ item.item_name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.unite_price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </uib-accordion>
+    </div>
     <div><a ng-click = "enter()" class="btn btn-primary btn-sm active"> See events?</a></div>
   </div>
   

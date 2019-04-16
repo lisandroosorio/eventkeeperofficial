@@ -33,7 +33,7 @@ angular.module('crowdcart.auth', [])// make an auth module
         $window.localStorage.setItem('crowdcarttoken', data.token);
         // saving username to localstorage
         $window.localStorage.setItem('crowdcartuser', data.userid);
-        document.getElementById("closeit").click();
+        document.getElementById("closeit2").click();
         $location.path('/mygroups');
      
       })
