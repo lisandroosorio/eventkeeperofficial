@@ -49,12 +49,24 @@ angular.module("crowdcart.groups", ["angularMoment"])
   .then(function (groups) {
     $scope.data.favGroups = groups;
     console.log($scope.data.favGroups);
-    console.log($scope.data);
+    $scope.data.favGroups.forEach(function(value,i)
+    {
+      console.log($scope.data.favGroups[i]._id);
+      Groups.getEvents($scope.data.favGroups[i]._id)
+      .then(function (event) {
+        $scope.tmpdata[i] = event;
+        console.log($scope.tmpdata[i]);
+        console.log(event);
+      })
+
+    });
+  
+  
   })
   .catch(function (error) {
     console.error(error);
   });
-
+ 
       
    var initialize = function () {
     
@@ -85,7 +97,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
       .catch(function(error){
         console.error(error);
       });
-      
+    
 
 
   };
@@ -120,7 +132,11 @@ var mydata = Groups.getEvents(groupid);
   
   
 }
-
+$scope.getArray=function(index)
+{
+  console.log("this is what we want to send back?"+$scope.tmpdata[index]);
+  return $scope.tmpdata[index];
+}
 
 $scope.enter = function(groupid) {
   // simple redirect 
@@ -271,16 +287,8 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
 
 // Date Picker ui-bootstrap controller
 
-// Accordian Controller
-angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope) {
-  $scope.oneAtATime = true;
 
-  $scope.status = {
-    isCustomHeaderOpen: false,
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
-});
+
 
 //pre load all events after loading in the event by doing some sort of function 
 
