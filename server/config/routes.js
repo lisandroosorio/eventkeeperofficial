@@ -57,6 +57,10 @@ module.exports = function(app, express){
          // GET - getAllevents
          app.get('/api/party', eventHandler.getAllEvents);
         
+            //removes favorite 
+        app.put('/api/removefavfromEvent/:id', eventHandler.removeFavUserEvent);
+         //put add favorite evevent to a user
+        app.put('/api/addfavtoEvent/:id', eventHandler.favEvent);
         app.post('/api/status', groupHandler.updateStatus);
 //function is for testing
 
