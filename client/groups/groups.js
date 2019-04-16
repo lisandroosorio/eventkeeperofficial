@@ -9,8 +9,6 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.fav = {};
   $scope.usertmp = {};
   $scope.tmpdata = {};
-  $scope.events = {};
-  $scope.eventFilter;
   console.log('HELLLLO1!');
 
 
@@ -42,18 +40,6 @@ angular.module("crowdcart.groups", ["angularMoment"])
   Groups.getGroups($scope.userid) //gets all the Groups right away for the user
   .then(function (groups) {
     $scope.data.groups = groups;
-
-    $scope.data.groups.forEach(function(value,i)
-    {
-      console.log($scope.data.groups[i]._id);
-      Groups.getEvents($scope.data.groups[i]._id)
-      .then(function (event) {
-        $scope.events[i] = event;
-        console.log($scope.events[i]);
-        console.log(event);
-      })
-
-    });
   
   })
   .catch(function (error) {
@@ -235,7 +221,45 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
       console.log(error); 
     });
 }
+$scope.favEvent = function(groupid) {  //adds the user needs to be added somewhere else too
 
+  console.log(groupid);
+
+    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
+    console.log($scope.usertmp);
+
+  // Update DB list with new deliverer_id
+  Groups.favEvent(groupid,$scope.usertmp)  //this calls the method addUser with these params
+    .then(function () {
+      //console.log("added user")
+      Groups.getGroups($scope.userid)
+      .then(function (events) {
+        $scope.data.favEvent = events;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    })
+    .catch(function (error) {
+      console.log(error); 
+    });
+}
+$scope.removeFavUserEvent = function(groupid,idx) {  //adds the user needs to be added somewhere else too
+
+  console.log(groupid);
+
+    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
+    console.log($scope.usertmp);
+
+  // Update DB list with new deliverer_id
+  Groups.removeFavUserEvent(groupid,$scope.usertmp)  //this calls the method addUser with these params
+  .then(function () {
+    $scope.data.favEvent.splice(idx, 1)
+  })
+    .catch(function (error) {
+      console.log(error); 
+    });
+}
 
   $scope.displayDetail = function(groupid) {
     // simple redirect 
@@ -295,23 +319,9 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
         $scope.data.groups.splice(idx, 1)
       })
   }
-
-  $scope.selectEvent = function(groupid){
-    $scope.eventFilter = groupid;
-  }
  
 })
 
-// Accordian Controller
-angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope) {
-  $scope.oneAtATime = true;
-
-  $scope.status = {
-    isCustomHeaderOpen: false,
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
-});
 
 // Date Picker ui-bootstrap controller
 
