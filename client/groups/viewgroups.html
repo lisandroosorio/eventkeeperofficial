@@ -49,10 +49,7 @@
       Luis was here <br>
       {{data.groups}}<br>
       {{userid}}<br>
-      {{tempData}}
-      <script>
-        var tempData = app.get('/api/groups/'+ userid, groupHandler.getGroups);
-      </script>
+      {{getGroups}}
     </div>
     
     
