@@ -77,8 +77,8 @@
                     </label>
                   </div>
                   
-                  <uib-accordion ng-repeat="group in data.groups">
-                    <div uib-accordion-group class="mt-1" heading="Static Header, initially expanded" is-disabled="status.isFirstDisabled">
+                  <uib-accordion>
+                    <div uib-accordion-group class="mt-1" heading="Static Header, initially expanded" is-disabled="status.isFirstDisabled" ng-repeat="group in data.groups">
                       {{userid}}
                     </div>
                   </uib-accordion>
