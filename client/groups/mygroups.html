@@ -8,9 +8,6 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
-    
-    
-
     .mb-60 {
     margin-bottom: 60px;
 }
@@ -65,7 +62,16 @@ p {
     color: #666;
     margin-bottom: 15px;
 }
-    
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
     
     </style>
   
@@ -80,7 +86,21 @@ p {
   
 
     <main role="main">
-
+        
+      <div ng-controller="DatepickerDemoCtrl">
+            <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+        
+            <h4>Inline</h4>
+            <div style="display:inline-block; min-height:290px;">
+              <div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="options"></div>
+            </div>
+        
+            <hr />
+            <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+            <button type="button" class="btn btn-sm btn-default" ng-click="setDate(2009, 7, 24)">2009-08-24</button>
+            <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
+            <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" uib-tooltip="After today restriction">Min date</button>
+        </div>
      
 
       <div class="album py-5 bg-light" >
@@ -91,12 +111,17 @@ p {
               	<div class="our-services-wrapper mb-60"> 
                     <div class="services-inner">
                      
-                      <div class="our-services-text" style="padding:10% 15% 10% 15%"  style="overflow-y: scroll" style="height: 100px">
+                      <div class="our-services-text" style="padding:10% 15% 10% 15%">
                         <h4>{{group.name}}</h4>
                         <uib-accordion close-others="oneAtATime">
                             
                             <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}" ng-repeat="event in getArray(index)" >
-                              {{event.description}}
+                              {{eventer}}
+                            </div>
+                            <div uib-accordion-group class="mt-1" heading="Dynamic Body Content">
+                              <p>The body of the uib-accordion group grows to fit the contents</p>
+                              <button type="button" class="btn btn-secondary btn-sm" ng-click="addItem()">Add Item</button>
+                              <div ng-repeat="item in items">{{item}}</div>
                             </div>
                           
                             
