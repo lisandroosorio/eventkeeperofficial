@@ -1,14 +1,14 @@
 angular.module("crowdcart.groups", ["angularMoment"])
 
-.controller("GroupsController", function ($scope, Groups, $window, $location, $rootScope, $timeout,$routeParams, $interval) {
+.controller("GroupsController", function ($scope, Groups, $window, $location, $rootScope, $routeParams, $interval) {
 
   // storage objs
   $scope.data = {};
   $scope.group = {};
   $scope.group.location_address = {};
-  $scope.fav = {};
+  $scope.group.items = [];
   $scope.usertmp = {};
-  $scope.tmpdata = {};
+
   console.log('HELLLLO1!');
 
 
@@ -45,16 +45,17 @@ angular.module("crowdcart.groups", ["angularMoment"])
   .catch(function (error) {
     console.error(error);
   });
-  Groups.getFavGroups($scope.userid) //gets all the favorite Groups right away for the user
-  .then(function (groups) {
-    $scope.data.favGroups = groups;
-    console.log($scope.data.favGroups);
-  
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
 
+  $(document).ready(function(){
+
+    console.log("document loaded");
+  
+  });
+  $(window).on("load",function(){
+  
+  console.log("window loaded");
+  
+  });
       
    var initialize = function () {
     
@@ -101,27 +102,6 @@ $scope.showallZ = function(){
       });
 
 }
-
-$scope.init = function(groupid){
-
-  $scope.getEvents(groupid);
-  
-
-}
-$scope.getEvents = function(groupid){
-
-//knows our current group id from array [0] is gonna keep incrementing we want to return all events
-var mydata = Groups.getEvents(groupid);
- mydata.then(function (result) {
-  $scope.tmpdata= result;
- console.log(result);
-});
- //gets all the groups right away for the user
-  
-  
-}
-
-
 $scope.enter = function(groupid) {
   // simple redirect 
   $location.path("/myevents/")
@@ -166,77 +146,12 @@ $scope.removeUser = function(groupid,idx) {  //adds the user needs to be added s
       console.log(error); 
     });
 }
-$scope.favUser = function(groupid) {  //adds the user needs to be added somewhere else too
-
-  console.log(groupid);
-
-    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
-    console.log($scope.usertmp);
-
-  // Update DB list with new deliverer_id
-  Groups.favUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
-    .then(function () {
-      //console.log("added user")
-      Groups.getGroups($scope.userid)
-      .then(function (groups) {
-        $scope.data.favGroups = groups;
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    })
-    .catch(function (error) {
-      console.log(error); 
-    });
-}
-$scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be added somewhere else too
-
-  console.log(groupid);
-
-    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
-    console.log($scope.usertmp);
-
-  // Update DB list with new deliverer_id
-  Groups.removeFavUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
-  .then(function () {
-    $scope.data.favGroups.splice(idx, 1)
-  })
-    .catch(function (error) {
-      console.log(error); 
-    });
-}
 
 
   $scope.displayDetail = function(groupid) {
     // simple redirect 
     $location.path("/groupdetail/" + groupid)
   }
-
-  $scope.oneAtATime = true;
-
-  $scope.groups = [
-    {
-      title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
-    },
-    {
-      title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
-    }
-  ];
-
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
-
-  $scope.status = {
-    isCustomHeaderOpen: false,
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
 
   //add new group method, will be attached into createnewgroup.html
   $scope.addGroup = function () {
@@ -282,6 +197,5 @@ angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope)
   };
 });
 
-//pre load all events after loading in the event by doing some sort of function 
 
 

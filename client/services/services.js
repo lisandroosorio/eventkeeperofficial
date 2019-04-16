@@ -80,21 +80,7 @@ angular.module("crowdcart.services",[])
     // console.log(JSON.stringify(user))
     return $http({
       method: "GET",
-      url: "/api/ownedGroups/" + id
-      // data: JSON.stringify(user)
-    })
-    .then(function(res) {
-      // console.log('groups: ', res.data)
-      return res.data;
-    })
-  }
-  var getFavGroups = function (id) {
-    // console.log("getting all Groups for", id)
-    var user = {userid: id}
-    // console.log(JSON.stringify(user))
-    return $http({
-      method: "GET",
-      url: "/api/favGroups/" + id
+      url: "/api/getOwnedgroups/" + id
       // data: JSON.stringify(user)
     })
     .then(function(res) {
@@ -168,28 +154,7 @@ angular.module("crowdcart.services",[])
       data: obj
     })
   }
-  var favUser = function (groupid,userid) //here this calls the post for the api/groups
-  {
-    var str = '{"user":"' + userid + '"}';
-    var obj = JSON.parse(str);
-    return $http({
-      method: "PUT",
-      url: "/api/addfavtoGroup/" + groupid,
-      // need to decide on format for this call
-      data: obj
-    })
-  }
-  var removeFavUser = function (groupid,userid) //here this calls the post for the api/groups
-  {
-    var str = '{"user":"' + userid + '"}';
-    var obj = JSON.parse(str);
-    return $http({
-      method: "PUT",
-      url: "/api/removefavfromGroup/" + groupid,
-      // need to decide on format for this call
-      data: obj
-    })
-  }
+  
 
   // added because server route looks to handle, not sure if we will need it
   var updateStatus = function (groupId, status) {
@@ -209,26 +174,8 @@ angular.module("crowdcart.services",[])
       data: group
     })
   }
-  var getEvents = function (id) {
-    console.log("getting all events for this group id ", id);
- 
-   return $http({
-     method: "GET",
-     url: "/api/events/" + id
-     // data: JSON.stringify(user)
-   })
-   .then(function(res) {
-      console.log(res.data)
-     return res.data;
-   })
- }
-
 
   return {
-    getEvents:getEvents,
-    getFavGroups:getFavGroups,
-    favUser:favUser,
-    removeFavUser:removeFavUser,
     addUser :addUser,
     removeUser: removeUser,
     getGroups: getGroups,

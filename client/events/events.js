@@ -6,7 +6,7 @@ angular.module("crowdcart.events", ["angularMoment"])
   $scope.data = {};
   $scope.event = {}; //self made vars
  
-  
+  $scope.event.items = [];
 
   $scope.groupid = $window.localStorage.getItem('currentEvent');
 $scope.groupidName = $window.localStorage.getItem('currentNameEvent');

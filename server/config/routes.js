@@ -22,10 +22,7 @@ module.exports = function(app, express){
         app.put('/api/removefromGroup/:id', groupHandler.removeUser);
         //radds a user  to a group
         app.put('/api/addtoGroup/:id', groupHandler.addUser);
-        //removes favorite 
-        app.put('/api/removefavfromGroup/:id', groupHandler.removeFavUser);
-        //radds to users favorites to a group
-        app.put('/api/addfavtoGroup/:id', groupHandler.favUser);
+
         // POST - addgroup
         app.post('/api/groups', groupHandler.addGroup);
         // GET - getGroup (single Group)
@@ -40,9 +37,6 @@ module.exports = function(app, express){
         app.get('/api/crowd', groupHandler.getAllGroups);
         //GET - get owned groups 
         app.get('/api/ownedGroups/:id',groupHandler.getOwnedGroups);
-
-        //GET - get favorite groups 
-        app.get('/api/favGroups/:id',groupHandler.getFavGroups);
 
          // POST - addEvent
          app.post('/api/events', eventHandler.addEvent);

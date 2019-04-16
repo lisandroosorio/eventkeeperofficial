@@ -305,6 +305,7 @@ aria-hidden="true">
               modal.style.display = "none";
           }
       }
+
       $('testing').submit(function(e) {
     e.preventDefault();
     // Coding
@@ -328,6 +329,7 @@ aria-hidden="true">
          var form_data=JSON.stringify({"user.email": name,
                                       "user.password" : name2
                                       });
+
          // submit form data to api
          $.ajax({
                 url: "https://eventkeeperofficial.herokuapp.com/api/signin",
