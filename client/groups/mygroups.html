@@ -91,14 +91,15 @@ p {
               	<div class="our-services-wrapper mb-60"> 
                     <div class="services-inner">
                      
-                      <div class="our-services-text" style="padding:10% 15% 10% 15%"  style="overflow-y: scroll" style="height: 100px">
+                      <div class="our-services-text" style="padding:10% 15% 10% 15%">
                         <h4>{{group.name}}</h4>
-                        <uib-accordion close-others="oneAtATime">
+                        <div class="testing"style="overflow-y: scroll; height: 200px">
+                           <uib-accordion close-others="oneAtATime">
                             
                             <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}" ng-repeat="event in getArray(index)" >
                               {{event.description}}
                             </div>
-                          
+                        </div>
                             
                          
                            
