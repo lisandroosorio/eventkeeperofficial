@@ -97,7 +97,54 @@ module.exports = {
       }
     });
   },
+  favEvent: function(req, res){ // here we wil do something that group 
+    
+    var id = req.params.id; //this is the value passed by the function by the parameters the url has
 
+    Event.findOne({'_id': id   }, function(err, event)
+        {
+          if (err) {
+            console.log('Group Findone ERROR ****** ');
+            console.error(err);
+          }
+          Event.update({ "_id": req.params.id  },
+          { $addToSet: { "isFavBy": req.body.user } }, function (err, d) { //finds this groupid and then goes into it and puts the tag into the array
+              if (!d.nModified) {
+                 // same value entered won't add to the array
+              } else {
+                  // new value entered and will add to the array
+              }
+      });
+          res.json(event);
+        }
+    );
+
+  },
+  removeFavUserEvent: function(req,res){
+
+    var id = req.params.id;
+  
+    Event.findOne({'_id': id   }, function(err, event)
+    {
+      if (err) {
+        console.log('Group Findone ERROR ****** ');  //checks if this group even exists
+        console.error(err);
+      }
+      Event.update({'_id': id}, 
+      { $pull: {  "isFavBy": req.body.user } }, function (err, result){
+        if(err) {
+            console.log("error removing user from group. err: ", err);
+          //  helper.sendError(err, req, res);
+        } else {
+            console.log("Successfully removed user");
+           res.json(event);
+        }
+       });
+     
+    }
+  );
+  
+   },
   // getEvents method
   getEvents: function(req, res){
     // var userid = req.body.userid;

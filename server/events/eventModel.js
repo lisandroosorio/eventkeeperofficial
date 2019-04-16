@@ -11,7 +11,7 @@ var EventSchema = new mongoose.Schema({
   group_id: String, //related to the group it is assocated with 
   
   description: String,
-  
+  isFavBy: [],
   type: String,
   private : Boolean,
 
