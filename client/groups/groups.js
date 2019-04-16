@@ -187,7 +187,7 @@ $scope.removeUser = function(groupid,idx) {  //adds the user needs to be added s
 // Date Picker ui-bootstrap controller
 
 // Accordian Controller
-angular.module('ui.bootstrap.demo').controller('AccordionDemoCtrl', function ($scope) {
+angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope) {
   $scope.oneAtATime = true;
 
   $scope.groups = [
