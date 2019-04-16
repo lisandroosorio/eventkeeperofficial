@@ -51,6 +51,8 @@ angular.module("crowdcart.groups", ["angularMoment"])
         $scope.events[i] = event;
         console.log($scope.events[i]);
         console.log(event);
+        console.log(Date.now);
+        console.log(event.due_at);
       })
 
     });
@@ -62,15 +64,14 @@ angular.module("crowdcart.groups", ["angularMoment"])
   Groups.getFavGroups($scope.userid) //gets all the favorite Groups right away for the user
   .then(function (groups) {
     $scope.data.favGroups = groups;
-    console.log($scope.data.favGroups);
+ 
     $scope.data.favGroups.forEach(function(value,i)
     {
-      console.log($scope.data.favGroups[i]._id);
+      
       Groups.getEvents($scope.data.favGroups[i]._id)
       .then(function (event) {
         $scope.tmpdata[i] = event;
-        console.log($scope.tmpdata[i]);
-        console.log(event);
+       
       })
 
     });
@@ -148,7 +149,7 @@ var mydata = Groups.getEvents(groupid);
 }
 $scope.getArray=function(index)
 {
-  console.log("this is what we want to send back?"+$scope.tmpdata[index]);
+  
   return $scope.tmpdata[index];
 }
 
@@ -305,7 +306,10 @@ $scope.removeFavUserEvent = function(groupid,idx) {  //adds the user needs to be
     isFirstOpen: true,
     isFirstDisabled: false
   };
-
+$scope.parse=function(name)
+{
+  return name.street + " "+name.city+" "+name.state;
+}
   //add new group method, will be attached into createnewgroup.html
   $scope.addGroup = function () {
     console.log("here?");

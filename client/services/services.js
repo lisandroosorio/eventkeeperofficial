@@ -232,14 +232,14 @@ angular.module("crowdcart.services",[])
     })
   }
   var getEvents = function (id) {
-  
+    
    return $http({
      method: "GET",
      url: "/api/events/" + id
      // data: JSON.stringify(user)
    })
    .then(function(res) {
-   
+
      return res.data;
    })
  }

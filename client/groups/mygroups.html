@@ -73,7 +73,8 @@ p {
     border-radius: 32px;
     color: black;
   }
-    
+  body { background-color: #fafafa; }
+	.container { margin: 150px auto; max-width: 960px; }
     </style>
   
     <title>Event keeper</title>
@@ -81,19 +82,13 @@ p {
     <!-- Bootstrap core CSS -->
    
   </head>
-
-  <body>
-      
-  
-
-    <main role="main">
-        
-  
-     
-
       <div class="album py-5 bg-light" >
-        <div class="container"style="padding-top: 10%">
-
+         
+          <h1 class="jumbotron-heading" style="text-align:center">Welcome to your events.</h1>
+          <p class="lead text-muted"style="text-align:center">Being shown are your favorite events.</br> To add more feel free to use the navigation bar.</p>
+          <p>
+        <div class="container">
+            
           <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12"  ng-repeat="group in data.favGroups" ng-init="index=$index">
               	<div class="our-services-wrapper mb-60"> 
@@ -104,16 +99,16 @@ p {
                         <div class="testing"style="overflow-y: scroll; height: 200px">
                            <uib-accordion close-others="oneAtATime">
 
-                              <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}" ng-repeat="event in getArray(index) | filter:date" >
+                              <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}{{event.date}}" ng-repeat="event in getArray(index) | filter:date" >
                                   Date: {{event.date}} </br> 
-                                  Location:{{event.event_address}} </br>
+                                  Location: {{event.event_address.street}} {{event.event_address.city}}  </br>
+                                  {{event.event_address.state}} {{event.event_address.zip_code}}  </br>
+                                   </br>
                                    {{event.description}}
                                  </div>
                             
                         </div>
-                            
-                         
-                           
+
                           </uib-accordion>
 
                       </div>
@@ -132,14 +127,8 @@ p {
 
     </main>
 
-   
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
-    
-  
 
 <svg xmlns="http://www.w3.org/2000/svg" width="508" height="225" viewBox="0 0 508 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
+
+
 </html>
