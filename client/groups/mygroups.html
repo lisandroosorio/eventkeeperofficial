@@ -6,9 +6,75 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+    
+    
     
   
-    <title>Album example for Bootstrap</title>
+  .navbar-collapse.in {
+    overflow-y: hidden;
+  }
+
+    .mb-60 {
+    margin-bottom: 60px;
+}
+.services-inner {
+    border: 2px solid #48c7ec;
+    margin-left: 35px;
+    transition: .3s;
+}
+.our-services-img {
+    float: left;
+    margin-left: -36px;
+    margin-right: 22px;
+    margin-top: 28px;
+}
+.our-services-text {
+    padding-right: 10px;
+}
+.our-services-text {
+    overflow: hidden;
+    padding: 28px 0 25px;
+}
+.our-services-text h4 {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.our-services-text h4::before {
+    background: #ec6d48 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    position: absolute;
+    width: 35px;
+}
+.our-services-wrapper:hover .services-inner {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid transparent;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.our-services-text p {
+    margin-bottom: 0;
+}
+p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #666;
+    margin-bottom: 15px;
+}
+    
+    
+    </style>
+  
+    <title>Event keeper</title>
 
     <!-- Bootstrap core CSS -->
    
@@ -23,24 +89,28 @@
      
 
       <div class="album py-5 bg-light">
-        <div class="container">
+        <div class="container"style="padding-top: 10%">
 
           <div class="row">
-            <div class="col-md-4" ng-repeat="group in data.groups">
-              <div class="card mb-4 box-shadow">
-               
-                <div class="card-body">
-                  
-                  <p class="card-text">{{group.name}}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
-                      <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" ng-repeat="group in data.favGroups">
+              	<div class="our-services-wrapper mb-60">
+                    <div class="services-inner">
+                     
+                      <div class="our-services-text" style="padding:10% 15% 10% 15%">
+                        <h4>{{group.name}}</h4>
+                       
+                        <button type="button" class="btn btn-secondary" ng-click="isCollapsedHorizontal = !isCollapsedHorizontal">Toggle collapse Horizontally</button>
+	<hr>
+	<div class="horizontal-collapse" uib-collapse="isCollapsedHorizontal" horizontal>
+		<div class="card">
+			<div class="card-body">
+				{{group.description}}
+			</div>
+		</div>
+	</div>
+                      </div>
                     </div>
-                    <small class="text-muted">9 mins</small>
                   </div>
-                </div>
-              </div>
             </div>
           
           </div>
@@ -48,8 +118,9 @@
       </div>
     </div>
     <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add Group</a></div>
-    <div><a ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groupst?</a></div>
+    <div><button type="button" ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groupst?</a></div>
   </div>
+
     </main>
 
    

@@ -20,6 +20,7 @@
             <div class="signup-outer">
                 <div class="signup-inner">
                   <form name="signup-form" ng-submit="signup()">
+                    <div class="signup-field"><input type="text" ng-model="user.username" placeholder={{hello}} style="color: black"></div>
                     <div class="signup-field"><input type="email" ng-model="user.email" placeholder="Email" style="color: black"></div>
                     <div class="signup-field"><input type="text" ng-model="user.name.first" placeholder="First Name" style="color: black"></div>
                     <div class="signup-field"><input type="text" ng-model="user.name.last" placeholder="Last Name" style="color: black"></div>
