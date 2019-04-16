@@ -79,17 +79,17 @@ aria-hidden="true">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<form name="signin-form" id="testing" ng-submit="signin()" onsubmit="return validateForm()" method="POST">
+		<form name="signin-form" id="signinid" ng-submit="signin()" onsubmit="return validateForm()" method="POST">
 		<div class="modal-body mx-3">
 			<div class="md-form mb-5">
 				<i class="fas fa-envelope prefix grey-text"></i>
-				<input type="email2" ng-model="user.email" id="defaultForm-email2" class="form-control validate">
+				<input type="email2" name="email" ng-model="user.email" id="defaultForm-email2" class="form-control validate">
 					<label data-error="wrong" data-success="right" for="defaultForm-email2">Your email</label>
 			</div>
 			
 			<div class="md-form mb-4">
 				<i class="fas fa-lock prefix grey-text"></i>
-				<input type="password" ng-model="user.password" id="defaultForm-pass" class="form-control validate">
+				<input type="password" name="password" ng-model="user.password" id="defaultForm-pass" class="form-control validate">
 					<label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
 			</div>
 			
@@ -113,7 +113,7 @@ aria-hidden="true">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<form name="signup-form" id="testing" ng-submit="signup()">
+		<form name="signup-form" id="signupid" ng-submit="signup()">
 		<div class="modal-body mx-3">
       
       <div class="md-form mb-4">
@@ -316,8 +316,8 @@ aria-hidden="true">
   <script>
     function validateForm() {
          
-         var first= document.forms["user"]["email"].value;
-         var second = document.forms["user"]["password"].value;
+         var first= document.forms["signinid"]["email"].value;
+         var second = document.forms["signinid"]["password"].value;
          var first2 = first;
          var first3 = second;
          var name = first2;
