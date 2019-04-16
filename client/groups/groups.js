@@ -294,6 +294,10 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
         $scope.data.groups.splice(idx, 1)
       })
   }
+
+  $scope.selectEvent = function(){
+    
+  }
  
 })
 
