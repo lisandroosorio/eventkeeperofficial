@@ -22,6 +22,9 @@
   
   <link href="css/landing-page.min.css" rel="stylesheet">
 
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 </head>
 
 <body>
@@ -310,25 +313,37 @@ aria-hidden="true">
     return false;
 });
   </script>
- <!-- <script>
-    (function() {
-    $('form > input').keyup(function() {
+  <script>
+    function validateForm() {
+         
+         var first= document.forms["user"]["email"].value;
+         var second = document.forms["user"]["password"].value;
+         var first2 = first;
+         var first3 = second;
+         var name = first2;
+         var obj = {};
+         obj[name] = first2;
+         var name2 = second;
+         obj[name2] = second;
+         
+         var form_data=JSON.stringify({"user.email": name,
+                                      "user.password" : name2
+                                      });
 
-        var empty = false;
-        $('form > input').each(function() {
-            if ($(this).val() == '') {
-                empty = true;
-            }
-        });
-
-        if (empty) {
-            $('#register').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
-        } else {
-            $('#register').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
-        }
-    });
-})()
-  </script> -->
+         // submit form data to api
+         $.ajax({
+                url: "https://eventkeeperofficial.herokuapp.com/api/signin",
+                type : "POST",
+                contentType : '/api/signin',
+                data : form_data,
+  
+                error: function(xhr, resp, text){
+                alert("Incorrect login credentials");
+                }
+                });
+                return false;
+       }
+  </script> 
 </body>
 
 </html>
