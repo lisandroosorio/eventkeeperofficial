@@ -190,6 +190,28 @@ angular.module("crowdcart.services",[])
       data: obj
     })
   }
+  var favEvent = function (groupid,userid) //here this calls the post for the api/groups
+  {
+    var str = '{"user":"' + userid + '"}';
+    var obj = JSON.parse(str);
+    return $http({
+      method: "PUT",
+      url: "/api/addfavtoEvent/" + groupid,
+      // need to decide on format for this call
+      data: obj
+    })
+  }
+  var removeFavUserEvent = function (groupid,userid) //here this calls the post for the api/groups
+  {
+    var str = '{"user":"' + userid + '"}';
+    var obj = JSON.parse(str);
+    return $http({
+      method: "PUT",
+      url: "/api/removefavfromEvent/" + groupid,
+      // need to decide on format for this call
+      data: obj
+    })
+  }
 
   // added because server route looks to handle, not sure if we will need it
   var updateStatus = function (groupId, status) {
@@ -210,21 +232,22 @@ angular.module("crowdcart.services",[])
     })
   }
   var getEvents = function (id) {
-    console.log("getting all events for this group id ", id);
- 
+  
    return $http({
      method: "GET",
      url: "/api/events/" + id
      // data: JSON.stringify(user)
    })
    .then(function(res) {
-      console.log(res.data)
+   
      return res.data;
    })
  }
 
 
   return {
+    removeFavUserEvent : removeFavUserEvent,
+    favEvent: favEvent,
     getEvents:getEvents,
     getFavGroups:getFavGroups,
     favUser:favUser,
