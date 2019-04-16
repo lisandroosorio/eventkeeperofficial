@@ -63,14 +63,6 @@
                       <div class="card-body" style="text-align: right" ng-transclude></div>
                     </div>
                   </script>
-                
-                  
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" ng-model="oneAtATime">
-                      Open only one at a time
-                    </label>
-                  </div>
                   
                   <uib-accordion>
                     <div uib-accordion-group class="mt-1" heading="{{group.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="event in events">
