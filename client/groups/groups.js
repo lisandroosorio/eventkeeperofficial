@@ -9,6 +9,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.fav = {};
   $scope.usertmp = {};
   $scope.tmpdata = {};
+  $scope.events = {};
   console.log('HELLLLO1!');
 
 
@@ -40,6 +41,18 @@ angular.module("crowdcart.groups", ["angularMoment"])
   Groups.getGroups($scope.userid) //gets all the Groups right away for the user
   .then(function (groups) {
     $scope.data.groups = groups;
+
+    $scope.data.groups.forEach(function(value,i)
+    {
+      console.log($scope.data.groups[i]._id);
+      Groups.getEvents($scope.data.groups[i]._id)
+      .then(function (event) {
+        $scope.events[i] = event;
+        console.log($scope.events[i]);
+        console.log(event);
+      })
+
+    });
   
   })
   .catch(function (error) {
