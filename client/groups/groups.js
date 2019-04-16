@@ -85,7 +85,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
       .catch(function(error){
         console.error(error);
       });
-    
+      console.log(data);
 
 
   };
