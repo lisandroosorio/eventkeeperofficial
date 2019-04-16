@@ -6,7 +6,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.data = {};
   $scope.group = {};
   $scope.group.location_address = {};
-  $scope.group.items = [];
+  $scope.fav = {};
   $scope.usertmp = {};
 
   console.log('HELLLLO1!');
@@ -45,17 +45,15 @@ angular.module("crowdcart.groups", ["angularMoment"])
   .catch(function (error) {
     console.error(error);
   });
-
-  $(document).ready(function(){
-
-    console.log("document loaded");
+  Groups.getFavGroups($scope.userid) //gets all the Groups right away for the user
+  .then(function (groups) {
+    $scope.data.favGroups = groups;
   
+  })
+  .catch(function (error) {
+    console.error(error);
   });
-  $(window).on("load",function(){
-  
-  console.log("window loaded");
-  
-  });
+
       
    var initialize = function () {
     
@@ -141,6 +139,45 @@ $scope.removeUser = function(groupid,idx) {  //adds the user needs to be added s
   Groups.removeUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
   .then(function () {
     $scope.data.groups.splice(idx, 1)
+  })
+    .catch(function (error) {
+      console.log(error); 
+    });
+}
+$scope.favUser = function(groupid) {  //adds the user needs to be added somewhere else too
+
+  console.log(groupid);
+
+    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
+    console.log($scope.usertmp);
+
+  // Update DB list with new deliverer_id
+  Groups.favUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
+    .then(function () {
+      //console.log("added user")
+      Groups.getGroups($scope.userid)
+      .then(function (groups) {
+        $scope.data.favGroups = groups;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    })
+    .catch(function (error) {
+      console.log(error); 
+    });
+}
+$scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be added somewhere else too
+
+  console.log(groupid);
+
+    $scope.usertmp = $scope.userid; // this holds the current user id onto a variable that we will send
+    console.log($scope.usertmp);
+
+  // Update DB list with new deliverer_id
+  Groups.removeFavUser(groupid,$scope.usertmp)  //this calls the method addUser with these params
+  .then(function () {
+    $scope.data.favGroups.splice(idx, 1)
   })
     .catch(function (error) {
       console.log(error); 
