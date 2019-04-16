@@ -46,7 +46,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              asdf
+              upcoming events:
 
               <div ng-controller="AccordionDemoCtrl">
                   <script type="text/ng-template" id="group-template.html">
@@ -77,7 +77,7 @@
                     </label>
                   </div>
                   -->
-                  <uib-accordion close-others="oneAtATime">
+                  <uib-accordion close-others="oneAtATime" ng-repeat="group in data.groups">
                     <div uib-accordion-group class="mt-1" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                       {{userid}}
                     </div>
