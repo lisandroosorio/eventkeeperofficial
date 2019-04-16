@@ -51,8 +51,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
         $scope.events[i] = event;
         console.log($scope.events[i]);
         console.log(event);
-        console.log(Date.now);
-        console.log(event.due_at);
+     
       })
 
     });
