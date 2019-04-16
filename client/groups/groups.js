@@ -49,7 +49,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   .then(function (groups) {
     $scope.data.favGroups = groups;
     console.log($scope.data.favGroups);
-  
+    console.log($scope.data);
   })
   .catch(function (error) {
     console.error(error);
@@ -85,7 +85,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
       .catch(function(error){
         console.error(error);
       });
-      console.log($scope.data);
+      
 
 
   };
