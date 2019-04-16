@@ -297,7 +297,7 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
   }
 
   $scope.selectEvent = function(groupid){
-    eventFilter = groupid;
+    $scope.eventFilter = groupid;
   }
  
 })
