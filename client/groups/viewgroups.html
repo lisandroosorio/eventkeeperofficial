@@ -48,9 +48,10 @@
       </div>
       Luis was here <br>
       {{data.groups}}<br>
-      {{userid}}
+      {{userid}}<br>
+      {{tempData}}
       <script>
-        app.get('/api/groups/'+ userid, groupHandler.getGroups);
+        var tempData = app.get('/api/groups/'+ userid, groupHandler.getGroups);
       </script>
     </div>
     
