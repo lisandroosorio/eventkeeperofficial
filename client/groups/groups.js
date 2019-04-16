@@ -10,7 +10,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.usertmp = {};
   $scope.tmpdata = {};
   $scope.events = {};
-  $scope.eventFilter;
+  $scope.eventFilter = [];
   console.log('HELLLLO1!');
 
 
