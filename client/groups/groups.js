@@ -10,6 +10,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.usertmp = {};
   $scope.tmpdata = {};
   $scope.events = {};
+  $scope.eventFilter;
   console.log('HELLLLO1!');
 
 
@@ -295,8 +296,8 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
       })
   }
 
-  $scope.selectEvent = function(){
-    
+  $scope.selectEvent = function(groupid){
+    eventFilter = groupid;
   }
  
 })
