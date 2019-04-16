@@ -39,7 +39,6 @@
                           <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
                           <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
                         </div>
-                        <small class="text-muted">9 mins</small>
                       </div>
                     </div>
                   </div>
@@ -48,6 +47,40 @@
             </div>
             <div class="col-md-4">
               asdf
+
+              <div ng-controller="AccordionDemoCtrl">
+                  <script type="text/ng-template" id="group-template.html">
+                    <div class="card-header">
+                      <h4 class="card-title" style="color:#fa39c3">
+                        <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                          <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+                            {{heading}}
+                          </span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div class="card-collapse collapse" uib-collapse="!isOpen">
+                      <div class="card-body" style="text-align: right" ng-transclude></div>
+                    </div>
+                  </script>
+                
+                  <p>
+                    <button type="button" class="btn btn-secondary btn-sm" ng-click="status.open = !status.open">Toggle last card</button>
+                    <button type="button" class="btn btn-secondary btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first card</button>
+                  </p>
+                
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="oneAtATime">
+                      Open only one at a time
+                    </label>
+                  </div>
+                  <uib-accordion close-others="oneAtATime">
+                    <div uib-accordion-group class="mt-1" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                      This content is straight in the template.
+                    </div>
+                  </uib-accordion>
+                </div>
             </div>
           </div>
         </div>
