@@ -336,6 +336,9 @@ aria-hidden="true">
                 type : "POST",
                 contentType : '/api/signin',
                 data : form_data,
+                success : function(result){
+                  location='mygroups.html';
+                 },
   
                 error: function(xhr, resp, text){
                 alert("Incorrect login credentials");
