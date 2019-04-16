@@ -284,6 +284,16 @@ $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be adde
  
 })
 
+// Accordian Controller
+angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope) {
+  $scope.oneAtATime = true;
+
+  $scope.status = {
+    isCustomHeaderOpen: false,
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
+});
 
 // Date Picker ui-bootstrap controller
 
