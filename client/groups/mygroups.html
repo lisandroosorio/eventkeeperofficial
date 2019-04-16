@@ -116,7 +116,8 @@ p {
                      
                       <div class="our-services-text" style="padding:10% 15% 10% 15%">
                         <h4>{{group.name}}</h4>
-                        <uib-accordion close-others="oneAtATime">
+                        <div class="testing"style="overflow-y: scroll; height: 200px">
+                           <uib-accordion close-others="oneAtATime">
                             
                             <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}" ng-repeat="event in getArray(index)" >
                               {{eventer}}
@@ -126,7 +127,7 @@ p {
                               <button type="button" class="btn btn-secondary btn-sm" ng-click="addItem()">Add Item</button>
                               <div ng-repeat="item in items">{{item}}</div>
                             </div>
-                          
+                        </div>
                             
                          
                            

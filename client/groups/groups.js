@@ -337,7 +337,11 @@ $scope.removeFavUserEvent = function(groupid,idx) {  //adds the user needs to be
   $scope.selectEvent = function(groupid){
     $scope.eventFilter = groupid;
   }
-  // Accordian Controller
+  
+ 
+})
+
+// Accordian Controller
   angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope) {
     $scope.oneAtATime = true;
 
@@ -347,10 +351,6 @@ $scope.removeFavUserEvent = function(groupid,idx) {  //adds the user needs to be
       isFirstDisabled: false
     };
   });
- 
-})
-
-
 // Date Picker ui-bootstrap controller
 
 
