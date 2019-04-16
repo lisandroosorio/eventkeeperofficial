@@ -73,8 +73,8 @@
                   </div>
                   
                   <uib-accordion>
-                    <div uib-accordion-group class="mt-1" heading="{{group.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="group in data.groups">
-                      {{userid}}
+                    <div uib-accordion-group class="mt-1" heading="{{group.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="event in events">
+                      {{event.name}}
                     </div>
                   </uib-accordion>
                 </div>
