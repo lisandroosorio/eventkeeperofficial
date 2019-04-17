@@ -137,6 +137,19 @@ angular.module("crowdcart.services",[])
       data: JSON.stringify(group)
     })
     .then(function(res) {
+     
+      return res.data
+    })
+  }
+  var addEvent = function(event) {  //KEYKEY
+    console.log("Are we even getting here event?");
+    return $http({
+      method: "POST",
+      url: "/api/events",
+      // clarify on data format
+      data: JSON.stringify(event)
+    })
+    .then(function(res) {
       return res.data
     })
   }
@@ -259,6 +272,7 @@ angular.module("crowdcart.services",[])
 
   return {
     removeFavUserEvent : removeFavUserEvent,
+    addEvent:addEvent,
     favEvent: favEvent,
     getEvents:getEvents,
     getFavGroups:getFavGroups,

@@ -212,7 +212,7 @@ li a:hover:not(.active) {
                                                                   </div>
                                                                 </div>
                                                               </div>
-
+                                                              
                                                               <div class="modal fade" id="newEvent{{$index}}" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
                                                                   <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
@@ -226,39 +226,39 @@ li a:hover:not(.active) {
                                                                       <div class="modal-body mx-2">
                                                                         <div class="md-form mb-3">
                                                                         
-                                                                          <input type="text" ng-model="newEventHolder.name" id="defaultForm-name" class="form-control validate" required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-name">Name</label>
+                                                                          <input type="text" ng-model="newEventHolder.name" id="defaultForm-name2" class="form-control validate" required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-name2">Name</label>
                                                                         </div>
                                                                         
                                                                         <div class="md-form mb-3">
                                                                           
-                                                                          <input type="text" ng-model="newEventHolder.date" id="defaultForm-date" class="form-control validate"required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-date">Date</label>
+                                                                          <input type="text" ng-model="newEventHolder.date" id="defaultForm-date2" class="form-control validate"required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-date2">Date</label>
                                                                         </div>
                                                                         <div class="md-form mb-3">
                                                                           
-                                                                          <input type="text" ng-model="newEventHolder.description" id="defaultForm-description" class="form-control validate"required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-description">Description</label>
+                                                                          <input type="text" ng-model="newEventHolder.description" id="defaultForm-description2" class="form-control validate"required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-description2">Description</label>
                                                                         </div>
                                                                         <div class="md-form mb-3">
                                                                           
-                                                                          <input type="Text" ng-model="newEventHolder.event_address.street" id="defaultForm-street" class="form-control validate"required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-street">Street</label>
+                                                                          <input type="Text" ng-model="newEventHolder.event_address.street" id="defaultForm-street2" class="form-control validate"required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-street2">Street</label>
                                                                         </div>
                                                                         <div class="md-form mb-3">
                                                                           
-                                                                          <input type="Text" ng-model="newEventHolder.event_address.city" id="defaultForm-city" class="form-control validate"required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-city">City</label>
+                                                                          <input type="Text" ng-model="newEventHolder.event_address.city" id="defaultForm-city2" class="form-control validate"required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-city2">City</label>
                                                                         </div>
                                                                         <div class="md-form mb-3">
                                                                           
-                                                                          <input type="Text" ng-model="newEventHolder.event_address.state" id="defaultForm-state" class="form-control validate"required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-state">State</label>
+                                                                          <input type="Text" ng-model="newEventHolder.event_address.state" id="defaultForm-state2" class="form-control validate"required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-state2">State</label>
                                                                         </div>
                                                                         <div class="md-form mb-3">
                                                                           
-                                                                          <input type="Text" ng-model="newEventHolder.event_address.zip_code" id="defaultForm-zipcode" class="form-control validate"required>
-                                                                            <label data-error="wrong" data-success="right" for="defaultForm-zipcode">Zip code</label>
+                                                                          <input type="Text" ng-model="newEventHolder.event_address.zip_code" id="defaultForm-zipcode2" class="form-control validate"required>
+                                                                            <label data-error="wrong" data-success="right" for="defaultForm-zipcode2">Zip code</label>
                                                                         </div>
                                                                         
                                                                       </div>
@@ -317,7 +317,7 @@ li a:hover:not(.active) {
                                                                 </br>
                                                                 {{event.description}}
                                                                 <div class = "east" style="padding-top: 5%">
-                                                                <td><button ng-click="editGroup(group._id)" class="btn btn-block btn-primary btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to edit this event?</a></td>
+                                                               
                                                                   <td><button ng-click="deleteEvent(event._id, $index)" class="btn btn-block btn-danger btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to remove this event?</a></td>
                                                                 </div>
                                                              </div>

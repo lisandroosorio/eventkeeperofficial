@@ -161,7 +161,7 @@ $scope.init = function(groupid){
   
 
 }
-  $scope.showEvent = function(id){
+$scope.showEvent = function(id){
   Groups.getEvents(id)
       .then(function(events){
         $scope.tmpHolder = events; ///data binded to scope.data.Groups which means this then shows it al if you want it
@@ -207,7 +207,7 @@ $scope.enter = function(groupid) {
 {
     var today = new Date();
     var date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
-    console.log(date);
+  
     if(event.date >= date)
     {
         return true; // this will be listed in the results
@@ -276,6 +276,31 @@ $scope.favUser = function(groupid) {  //adds the user needs to be added somewher
     .catch(function (error) {
       console.log(error); 
     });
+}
+$scope.addEvent = function(groupid)
+{
+  console.log("checking");
+    $scope.newEventHolder.group_id = groupid;
+    console.log($scope.newEventHolder);
+    Groups.addEvent($scope.newEventHolder)  //this calls the method addUser with these params
+    .then(function () {
+      console.log("added event")
+      Groups.getEvents(groupid)
+      .then(function(events){
+        $scope.tmpHolder = events; ///data binded to scope.data.Groups which means this then shows it al if you want it
+          //Only showing the Group that has not deliverer, and those that do not belong to user, and not overdue
+         
+      })
+      .catch(function(error){
+        console.error(error);
+      });
+    })
+    .catch(function (error) {
+      console.log(error); 
+    });
+    console.log("why wont this modal close!!1");
+    document.getElementById("newEventClose").click();
+
 }
 $scope.removeFavUser = function(groupid,idx) {  //adds the user needs to be added somewhere else too
 
@@ -381,7 +406,7 @@ $scope.parse=function(name)
   return name.street + " "+name.city+" "+name.state;
 }
   //add new group method, will be attached into createnewgroup.html
-  $scope.addGroup = function () {
+$scope.addGroup = function () {
     console.log("here?");
 
     $scope.newGroupHolder.creator_id = $scope.userid; //this is how you associate the creator of the db
@@ -394,13 +419,24 @@ $scope.parse=function(name)
     
     Groups.newGroup($scope.newGroupHolder)
       .then(function () {
-        //$location.path('/mygroups'); //go to mygroups was successfull
+        console.log("successfully added");
+      
+        Groups.getOwnedGroups($scope.userid) //gets all the Groups right away for the user
+        .then(function (groups) {
+          $scope.data.ownedGroups = groups;
+          console.log(groups);
+        
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+
       })
       .catch(function (error) {
         console.log(error);
       });
     document.getElementById("newGroupClose").click();
-  };
+  }
 
 $scope.deleteGroup = function(groupid, idx) {
   
@@ -416,6 +452,7 @@ $scope.deleteGroup = function(groupid, idx) {
   
  
 })
+
 
 // Accordian Controller
   angular.module('ui.bootstrap').controller('AccordionDemoCtrl', function ($scope) {
