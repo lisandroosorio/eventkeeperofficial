@@ -81,36 +81,32 @@ p {
 
 
 
-  body {
-  margin: 0;
-}
-
-ul {
+  ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 15%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
 }
 
 li a {
   display: block;
-  color: #000;
-  padding: 8px 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
 }
 
-li a.active {
-  background-color: rgb(80, 138, 224);
-  color: white;
+li a:hover:not(.active) {
+  background-color: #111;
 }
 
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+.active {
+  background-color: rgb(80, 138, 224);
 }
     
     </style>
@@ -122,13 +118,15 @@ li a:hover:not(.active) {
    
   </head>
 
-  <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#news">Manage my groups</a></li>
-      <li><a href="#contact">Groups I'm following</a></li>
-      <li><a href="#about">Search for new groups</a></li>
-    </ul>
-    
+  <div class="navbar">
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#mygroups">My groups</a></li>
+        <li><a href="#following">Groups I'm following</a></li>
+        <li><a href="#search">Search for new groups</a></li>
+      </ul>
+      </div>
+
       <div class="album py-5 bg-light" >
          
           <h1 class="jumbotron-heading" style="text-align:center">Welcome to your events.</h1>
