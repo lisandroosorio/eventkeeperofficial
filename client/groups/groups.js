@@ -149,6 +149,11 @@ $scope.showallZ = function(){
       });
 
 }
+  $scope.getArray2=function(index)
+{
+  
+  return $scope.events[index];
+}
 
 $scope.init = function(groupid){
 
