@@ -73,7 +73,11 @@ angular.module("crowdcart", [
         controller: 'EventsController'
       
       })
-
+      .when('/search', {
+        templateUrl: 'groups/search.html',
+        controller: 'GroupsController',
+        authenticate: true
+      })
 
       .otherwise({
         redirectTo: "/mygroups"
