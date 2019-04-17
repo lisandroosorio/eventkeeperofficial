@@ -66,13 +66,8 @@
                   </script>
                   
                   <uib-accordion>
-<<<<<<< HEAD
-                    <div uib-accordion-group class="mt-1" heading="{{event.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="event in events | filter: '_id': '{{eventFilter}}'">
-                      {{event[0].name}}
-=======
                     <div uib-accordion-group class="mt-1" heading="{{event.name}} Event" is-disabled="status.isFirstDisabled" ng-repeat="event in events">
                       {{event.name}}
->>>>>>> 6f961f4ca2a525ac843c91a599061c01a24afb9c
                     </div>
                   </uib-accordion>
                 </div>

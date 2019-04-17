@@ -154,10 +154,7 @@ module.exports = {
 
     Event.find({'group_id': userid})
       .then(function(Events){
-        console.log(Date());
-        Events.forEach(element => {
-          console.log(element.due_at);
-        });
+        
 
         res.json(Events);
       });
