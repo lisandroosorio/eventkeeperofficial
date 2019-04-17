@@ -126,13 +126,8 @@ li a:hover:not(.active) {
         <li><a href="#mygroups">My groups</a></li>
         <li><a href="#following">Groups I'm following</a></li>
         <li><a href="#search">Search for new groups</a></li>
+        <li><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
       </ul>
-      <div class="top-nav-right" ng-if="hasSession">
-          <span>
-              
-            <a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a>
-          </span>
-        </div>
 
       <div class="album py-5 bg-light" >
          
