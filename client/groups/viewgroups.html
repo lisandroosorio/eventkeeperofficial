@@ -29,7 +29,7 @@
             <div class="col-md-8">
                 <label>Search: <input ng-model="searchText"></label>
               <div class="row"><!--Favorited groups-->
-                <h6>FAVORITED</h6><br>
+                <div class="col-md-12"><h6>Favorited</h6></div>
                 <div class="col-md-4" ng-repeat="group in data.favGroups">
                     <div class="card mb-4 box-shadow">
                     
@@ -52,7 +52,7 @@
               </div>
               <div class="row"><!--Non-favorited groups-->
                 <hr>
-                <h6>ALL GROUPS</h6><br>
+                <div class="col-md-12"><h6>ALL GROUPS</h6></div>
                 <div class="col-md-4" ng-repeat="group in data.groups | filter:searchText">
                   <div class="card mb-4 box-shadow">
                   
