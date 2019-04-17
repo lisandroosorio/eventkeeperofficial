@@ -387,17 +387,18 @@ $scope.parse=function(name)
       });
   };
 
-  $scope.deleteGroup = function(groupid, idx) {
+$scope.deleteGroup = function(groupid, idx) {
+  
     Groups.deleteGroup(groupid)
       .then(function () {
-        $scope.data.groups.splice(idx, 1)
+        $scope.data.ownedGroups.splice(idx, 1)
       })
   }
 
   $scope.selectEvent = function(groupid){
     $scope.eventFilter[0] = groupid;
   }
- 
+  
  
 })
 
