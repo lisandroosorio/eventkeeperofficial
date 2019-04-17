@@ -294,7 +294,7 @@ li a:hover:not(.active) {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form name="newGroupForm" id="newGroupForm" ng-submit="addGroup()">
+          <form name="newGroupForm" id="newGroupForm" ng-submit="addGroup(); angular.element('.modal-dialog').hide();">
           <div class="modal-body mx-2">
             <div class="md-form mb-3">
             
