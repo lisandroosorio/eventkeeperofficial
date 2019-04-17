@@ -146,7 +146,7 @@ li a:hover:not(.active) {
                         <div class="testing"style="overflow-y: scroll; height: 200px">
                            <uib-accordion close-others="oneAtATime">
 
-                              <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}:{{event.date}}" ng-repeat="event in getArray(index) | filter:date" >
+                              <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}:{{event.date}}" ng-repeat="event in getArray(index) | filter:filterFn |filter:date" >
                                   Date: {{event.date}} </br> 
                                   Location: {{event.event_address.street}} {{event.event_address.city}}  </br>
                                   {{event.event_address.state}} {{event.event_address.zip_code}}  </br>
