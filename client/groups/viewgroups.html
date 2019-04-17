@@ -19,10 +19,19 @@
   
 
     <main role="main">
-
+      <ul>
+        <li><a class="active">Home</a></li>
+        <li><a href="https://eventkeeperofficial.herokuapp.com/#/managegroups">Manage groups</a></li>
+        <li><a href="#following">Groups/Events I'm following</a></li>
+        <li><a href="https://eventkeeperofficial.herokuapp.com/#/search">Search for new groups</a></li>
+        <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
+      </ul>
      
 
       <div class="album py-5 bg-light">
+          <h1 class="jumbotron-heading" style="text-align:center">Welcome to your groups</h1>
+          <p class="lead text-muted"style="text-align:center">Manage all the groups you follow and look at upcoming events here</br></p>
+          <p>
         <div class="container">
 
           <div class="row">
@@ -42,7 +51,7 @@
                             <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
                             <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
                             -->
-                            <button type="button" ng-click="removeFavUser(group._id)" class="btn btn-sm btn-outline-secondary">Remove from Favorites</button> 
+                            <button type="button" ng-click="removeFavUser(group._id, $index)" class="btn btn-sm btn-outline-secondary">Remove from Favorites</button> 
                           </div>
   
                         </div>
@@ -66,7 +75,7 @@
                           <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
                           -->
                           <button type="button" ng-click="favUser(group._id)" class="btn btn-sm btn-outline-secondary">Add to Favorites</button>
-                          <button type="button" ng-click="removeUser(group._id)" class="btn btn-sm btn-outline-secondary">Unfollow Group</button>  
+                          <button type="button" ng-click="removeUser(group._id, $index)" class="btn btn-sm btn-outline-secondary">Unfollow Group</button>  
                         </div>
 
                       </div>
