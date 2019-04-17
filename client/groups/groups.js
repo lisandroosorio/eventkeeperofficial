@@ -388,7 +388,7 @@ $scope.parse=function(name)
     
     Groups.newGroup($scope.newGroupHolder)
       .then(function () {
-        $location.path('/mygroups'); //go to mygroups was successfull
+        //$location.path('/mygroups'); //go to mygroups was successfull
       })
       .catch(function (error) {
         console.log(error);
