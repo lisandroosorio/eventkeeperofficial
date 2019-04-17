@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<!--ACTUAL PAGE-->
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="descriptionz" content="">
+    <meta name="authorz" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  
+  
+    
+    <style>
+       
+
+       .mb-60 {
+    margin-bottom: 60px;
+}
+.services-inner {
+    border: 2px solid #48c7ec;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.our-services-text {
+    overflow: hidden;
+    padding: 28px 0 25px;
+}
+.our-services-text h4 {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.our-services-text h4::before {
+    background: #ec6d48 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    position: absolute;
+    width: 35px;
+}
+.our-services-wrapper:hover .services-inner {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid transparent;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.our-services-text p {
+    margin-bottom: 0;
+}
+p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #666;
+    margin-bottom: 15px;
+}
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+    
+
+
+
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(80, 138, 224);
+}
+.button_example 
+   {float: right}
+    
+    </style>
+  
+    <title>Event keeper</title>
+
+	
+
+   
+  </head>
+
+ 
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#mygroups">My groups</a></li>
+        <li><a href="#following">Groups I'm following</a></li>
+        <li><a href="#search">Search for new groups</a></li>
+      </ul>
+      <div class="top-nav-right" ng-if="hasSession">
+          <span>
+              
+            <a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a>
+          </span>
+        </div>
+        <div class="album py-5 bg-light" >
+        <h1 class="jumbotron-heading" style="text-align:center">Welcome to your groups.</h1>
+        <p class="lead text-muted"style="text-align:center">See, Manage, and Create groups.</br></p>
+        <div class="container" >
+                
+                <div class="row"style="padding-top : 10%">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="our-services-wrapper mb-60">
+                                        <div class="services-inner">
+                                            
+                                            <div class="our-services-text" style="padding:10% 15% 10% 15%">
+                                                <h4>Manage My Groups</h4>
+                                                <div class="testing"style="overflow-y: scroll; height: 200px">
+                                                        <uib-accordion close-others="oneAtATime">
+                             
+                                                           <div uib-accordion-group class="mt-1" ng-click="showEvent(group._id)" style="font-size: small" heading="{{group.name}} Users following: {{group.isFollowedBy.length}}" ng-repeat="group in data.ownedGroups| filter:isFollowedBy.length" >
+                                                              {{group.description}}</br>
+                                                              <div class = "eas" style="padding-top: 5%">
+                                                              <td><a ng-click="editGroup(group._id)" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-book"></span> Want to edit this group?</a></td>
+                                                              </div>
+                                                           </div>
+                                                         
+                                                     </div>
+                             
+                                                       </uib-accordion>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="our-services-wrapper mb-60">
+                                        <div class="services-inner">
+                                        
+                                            <div class="our-services-text" style="padding:10% 15% 10% 15%">
+                                                <h4>Manage my Events</h4>
+                                                <div class="testing"style="overflow-y: scroll; height: 200px">
+                                                        <uib-accordion close-others="oneAtATime">
+                             
+                                                           <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}:{{event.date}}" ng-repeat="event in tmpHolder | filter:filterFn |filter:date" >
+                                                               Date: {{event.date}} </br> 
+                                                               Location: {{event.event_address.street}} {{event.event_address.city}}  </br>
+                                                               {{event.event_address.state}} {{event.event_address.zip_code}}  </br>
+                                                                </br>
+                                                                {{event.description}}
+                                                           </div>
+                                                         
+                                                     </div>
+                             
+                                                       </uib-accordion>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+         </div>
+            
+        </div>
+    <div><a href='#/createnewgroup' style="float: right" class="btn btn-primary btn-sm active">Add Group</a></div>
+    <div><button type="button" style="float: right" ng-click = "showallZ()" class="btn btn-primary btn-sm active"> show all groups?</a></div>
+  </div>
+
+    </main>
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="508" height="225" viewBox="0 0 508 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
+
+
+   
+
+	
+</body>
+</html>
