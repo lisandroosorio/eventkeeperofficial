@@ -243,6 +243,18 @@ angular.module("crowdcart.services",[])
      return res.data;
    })
  }
+ var deleteEvents = function (id) {
+
+  return $http({
+    method: "DELETE",
+    url: "/api/events/" + id
+    // data: JSON.stringify(user)
+  })
+  .then(function(res) {
+
+    return res.data;
+  })
+}
 
 
   return {
@@ -262,7 +274,8 @@ angular.module("crowdcart.services",[])
     newGroup: newGroup,
     updateGroup: updateGroup,
     getOwnedGroups : getOwnedGroups,
-    deleteGroup: deleteGroup
+    deleteGroup: deleteGroup,
+    deleteEvents: deleteEvents
 
   }
 
