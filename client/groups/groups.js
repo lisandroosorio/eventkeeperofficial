@@ -181,7 +181,7 @@ var mydata = Groups.getEvents(groupid);
 $scope.deleteEvent = function(eventid, idx) {
   Groups.deleteEvent(eventid)
     .then(function () {
-      $scope.tmpholder.splice(idx, 1)
+      $scope.tmpHolder.splice(idx, 1)
     })
 }
 
