@@ -131,36 +131,27 @@ p {
             <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
         </ul>
            
-        <div class="container" style="text-align: center">
-                <div class="our-services-text" style="padding:10% 15% 10% 15%">
-                <h4>Search for groups</h4>
-                
-                <div class="input-group" style="margin: 0 auto">
-                    <input type="text" ng-model="searchText2" style="width: 500px; height: 45px" placeholder="Search...">
-                      <button class="btn btn-secondary" type="button" style="width: 50px; height: 45px">
-                        <i class="fa fa-search"></i>
-                      </button>
-                </div>
-                <div class="row"style="padding-top : 10%">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                        <div class="our-services-wrapper mb-60">
-                            <div class="services-inner">
-                                <div class="our-services-text" style="padding:10% 15% 10% 15%">
-                                    <uib-accordion close-others="oneAtATime">
-                                    <div uib-accordion-group class="mt-1" ng-click="showEvent(group._id)" style="font-size: small" heading="{{group.name}}" ng-repeat="group in data.bGroups| filter:searchText2" >
-                                    {{group.description}}</br>
-                                        <div class = "eas" style="padding-top: 5%">
-                                        <td><a ng-click="editGroup(group._id)" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-book"></span> Want to edit this group?</a></td>
-                                        </div>
-                                    </div>
+<div class="container" >
+        <h4>Search for groups</h4>
+    <div class="row"style="padding-top : 10%">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div class="our-services-wrapper mb-60">
+                <div class="services-inner">
+                    <div class="our-services-text" style="padding:10% 15% 10% 15%">
+                        <div class="testing"style="overflow-y: scroll; height: 200px">
+                        <uib-accordion close-others="oneAtATime">
+                            <div uib-accordion-group class="mt-1" ng-click="showEvent(group._id)" style="font-size: small" heading="{{group.name}} Users following: {{group.isFollowedBy.length}}" ng-repeat="group in data.ownedGroups| filter:isFollowedBy.length" >
+                            {{group.description}}</br>
+                                <div class = "eas" style="padding-top: 5%">
+                                <td><a ng-click="editGroup(group._id)" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-book"></span> Want to edit this group?</a></td>
                                 </div>
-                                </uib-accordion>
-                            </div>
+                            </div>               
                         </div>
-                    </div>    
+                        </uib-accordion>
                     </div>
-                    </div>
-
-                
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 </html>
