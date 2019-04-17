@@ -59,6 +59,18 @@ angular.module("crowdcart.groups", ["angularMoment"])
   .catch(function (error) {
     console.error(error);
   });
+
+  Groups.getAllGroups()
+      .then(function(allGroups){
+        $scope.data.bGroups = allGroups; ///data binded to scope.data.Groups which means this then shows it al if you want it
+          //Only showing the Group that has not deliverer, and those that do not belong to user, and not overdue
+         
+      })
+      .catch(function(error){
+        console.error(error);
+      });
+
+
   Groups.getOwnedGroups($scope.userid) //gets all the Groups right away for the user
   .then(function (groups) {
     $scope.data.ownedGroups = groups;
