@@ -318,7 +318,20 @@ $scope.removeFavUserEvent = function(groupid,idx) {  //adds the user needs to be
       console.log(error); 
     });
 }
+$scope.updateGroup = function(group,idx) {
+    // simple redirect 
+    Groups.updateGroup(group)
+    .then(function(returngroup){
 
+      $scope.data.ownedGroups[idx] = returngroup.data;
+   
+    })
+    .catch(function(error){
+      console.log(error);
+    });
+
+    document.getElementById("closeit"+idx).click();
+  }
   $scope.displayDetail = function(groupid) {
     // simple redirect 
     $location.path("/groupdetail/" + groupid)

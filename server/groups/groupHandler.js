@@ -234,7 +234,10 @@ removeUser: function(req,res){
           {
             group.location_address = req.body.location_address;
           } 
-          
+            if(req.body.type !=null)
+          {
+            group.type = req.body.type;
+          }
  
           group.save();
           res.json(group);
