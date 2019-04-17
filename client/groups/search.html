@@ -133,7 +133,7 @@ p {
         
         
         <div class="input-group">
-            <input type="text" class="form-control" style="width: 300px" ng-model="searchText" placeholder="Search...">
+            <input type="text" class="form-control" style="width: 300px" placeholder="Search...">
             <div class="input-group-append">
               <button class="btn btn-secondary" type="button">
                 <i class="fa fa-search"></i>
@@ -146,7 +146,6 @@ p {
             <div class="our-services-text" style="padding:10% 15% 10% 15%">
                 <h4>Manage My Groups</h4>
                 <div class="testing"style="overflow-y: scroll; height: 200px">
-                    <tr ng-repeat="filter:searchText">
                   <uib-accordion close-others="oneAtATime">
                            <div uib-accordion-group class="mt-1" ng-click="showEvent(group._id)" style="font-size: small" heading="{{group.name}}" ng-repeat="group in data.bGroups| filter:isFollowedBy.length" >
                               {{group.description}}</br>
@@ -154,7 +153,6 @@ p {
                               <td><a ng-click="editGroup(group._id)" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-book"></span> Want to edit this group?</a></td>
                               </div>
                            </div>
-                          </tr>
                      </div>
 
                        </uib-accordion>
