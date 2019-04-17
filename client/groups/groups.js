@@ -399,6 +399,7 @@ $scope.parse=function(name)
       .catch(function (error) {
         console.log(error);
       });
+    document.getElementById("newGroupClose").click();
   };
 
 $scope.deleteGroup = function(groupid, idx) {
