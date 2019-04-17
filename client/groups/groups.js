@@ -338,7 +338,7 @@ $scope.parse=function(name)
   }
 
   $scope.selectEvent = function(groupid){
-    $scope.eventFilter = groupid;
+    $scope.eventFilter[0] = groupid;
   }
   
  
