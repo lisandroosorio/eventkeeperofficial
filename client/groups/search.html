@@ -132,10 +132,10 @@ p {
         </ul>
         
         
-        <div class="input-group" style="width: 500px; height: 50px; margin:0 auto">
-            <input type="text" style="width: 500px; height: 50px; margin:0 auto" placeholder="Search...">
+        <div class="input-group" style="width: 500px; height: 45px; margin:0 auto">
+            <input type="text" style="width: 500px; height: 45px; margin:0 auto" placeholder="Search...">
             <div class="input-group-append">
-              <button class="btn btn-secondary" type="button" style="width: 500px; height: 50px; margin:0 auto">
+              <button class="btn btn-secondary" type="button" style="width: 500px; height: 45px; margin:0 auto">
                 <i class="fa fa-search"></i>
               </button>
             </div>
@@ -144,7 +144,7 @@ p {
         <div class="container" >
                 
             <div class="our-services-text" style="padding:10% 15% 10% 15%">
-                <h4>Manage My Groups</h4>
+                <h4>Search for groups</h4>
                 <div class="testing"style="overflow-y: scroll; height: 200px">
                   <uib-accordion close-others="oneAtATime">
                            <div uib-accordion-group class="mt-1" ng-click="showEvent(group._id)" style="font-size: small" heading="{{group.name}}" ng-repeat="group in data.bGroups| filter:isFollowedBy.length" >
