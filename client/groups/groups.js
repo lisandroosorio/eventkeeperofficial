@@ -12,6 +12,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.events = {};
   $scope.eventFilter;
  $scope.tmpHolder=[];
+  $scope.newGroupHolder = {};
 
 
   // store userid/gorupid into local storage (same level as auth token)
@@ -385,7 +386,7 @@ $scope.parse=function(name)
     //If user choose the default address, assign the default address to the group to be added
     console.log("YEET");
     
-    Groups.newGroup($scope.group)
+    Groups.newGroup($scope.newGroupHolder)
       .then(function () {
         $location.path('/mygroups'); //go to mygroups was successfull
       })
