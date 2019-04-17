@@ -29,6 +29,7 @@
             <div class="col-md-8">
                 <label>Search: <input ng-model="searchText"></label>
               <div class="row"><!--Favorited groups-->
+                <h6>FAVORITED</h6><br>
                 <div class="col-md-4" ng-repeat="group in data.favGroups">
                     <div class="card mb-4 box-shadow">
                     
@@ -51,6 +52,7 @@
               </div>
               <div class="row"><!--Non-favorited groups-->
                 <hr>
+                <h6>ALL GROUPS</h6><br>
                 <div class="col-md-4" ng-repeat="group in data.groups | filter:searchText">
                   <div class="card mb-4 box-shadow">
                   
@@ -63,7 +65,8 @@
                           <button type="button" ng-click="addUser(this.group._id)" class="btn btn-sm btn-outline-secondary">Add group</button>
                           <button type="button" ng-click="removeUser(this.group._id,$index)"class="btn btn-sm btn-outline-secondary">remove group</button>
                           -->
-                          <button type="button" ng-click="favUser(group._id)" class="btn btn-sm btn-outline-secondary">Add to Favorites</button> 
+                          <button type="button" ng-click="favUser(group._id)" class="btn btn-sm btn-outline-secondary">Add to Favorites</button>
+                          <button type="button" ng-click="removeUser(group._id)" class="btn btn-sm btn-outline-secondary">Unfollow Group</button>  
                         </div>
 
                       </div>
