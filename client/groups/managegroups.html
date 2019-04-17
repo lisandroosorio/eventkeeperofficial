@@ -152,7 +152,7 @@ li a:hover:not(.active) {
                                                               <div class = "eas" style="padding-top: 5%">
                                                                 <td><button ng-click="editGroup(group._id)" class="btn btn-block btn-info btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to add an event to this group?</a></td>
                                                               <td><button data-toggle="modal" data-target="#modalLoginForm{{$index}}" class="btn btn-block btn-primary btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to edit this group?</a></td>
-                                                                <td><button ng-click="editGroup(group._id)" class="btn btn-block btn-danger btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to remove this group?</a></td>
+                                                                <td><button ng-click="deleteGroup(group._id,$index)" class="btn btn-block btn-danger btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to remove this group?</a></td>
 
                                                               </div>
                                                               <div class="modal fade" id="modalLoginForm{{index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
