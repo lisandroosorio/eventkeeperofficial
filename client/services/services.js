@@ -243,7 +243,7 @@ angular.module("crowdcart.services",[])
      return res.data;
    })
  }
- var deleteEvents = function (id) {
+ var deleteEvent = function (id) {
 
   return $http({
     method: "DELETE",
@@ -275,7 +275,7 @@ angular.module("crowdcart.services",[])
     updateGroup: updateGroup,
     getOwnedGroups : getOwnedGroups,
     deleteGroup: deleteGroup,
-    deleteEvents: deleteEvents
+    deleteEvent: deleteEvent
 
   }
 
