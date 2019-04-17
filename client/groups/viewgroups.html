@@ -12,7 +12,54 @@
 
     <!-- Bootstrap core CSS -->
    <style>
-   p {
+   .mb-60 {
+    margin-bottom: 60px;
+}
+.services-inner {
+    border: 2px solid #48c7ec;
+    margin-left: 35px;
+    transition: .3s;
+}
+.our-services-img {
+    float: left;
+    margin-left: -36px;
+    margin-right: 22px;
+    margin-top: 28px;
+}
+.our-services-text {
+    padding-right: 10px;
+}
+.our-services-text {
+    overflow: hidden;
+    padding: 28px 0 25px;
+}
+.our-services-text h4 {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.our-services-text h4::before {
+    background: #ec6d48 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    position: absolute;
+    width: 35px;
+}
+.our-services-wrapper:hover .services-inner {
+    background: #fff none repeat scroll 0 0;
+    border: 2px solid transparent;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.our-services-text p {
+    margin-bottom: 0;
+}
+p {
     font-size: 14px;
     font-weight: 400;
     line-height: 26px;
@@ -60,6 +107,8 @@ li a:hover:not(.active) {
 .active {
   background-color: rgb(80, 138, 224);
 }
+.button_example 
+   {float: right}
    
    </style>
   </head>
@@ -69,13 +118,13 @@ li a:hover:not(.active) {
   
 
     <main role="main">
-      <ul>
-        <li><a class="active">Home</a></li>
-        <li><a href="https://eventkeeperofficial.herokuapp.com/#/managegroups">Manage groups</a></li>
-        <li><a href="#following">Groups/Events I'm following</a></li>
-        <li><a href="https://eventkeeperofficial.herokuapp.com/#/search">Search for new groups</a></li>
-        <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
-      </ul>
+        <ul>
+            <li><a href="https://eventkeeperofficial.herokuapp.com/#/mygroups">Home</a></li>
+            <li><a href="https://eventkeeperofficial.herokuapp.com/#/managegroups">Manage groups</a></li>
+            <li><a class="active">Groups/Events I'm following</a></li>
+            <li><a href="https://eventkeeperofficial.herokuapp.com/#/search">Search for new groups</a></li>
+            <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
+        </ul> 
      
 
       <div class="album py-5 bg-light">
@@ -159,7 +208,8 @@ li a:hover:not(.active) {
                       <div uib-accordion-group class="mt-1" heading="{{event.name}}" is-disabled="status.isFirstDisabled" ng-repeat="event in group">
                           {{event.date}}<br>
                           {{event.event_address.street}}, {{event.event_address.city}}<br>
-                          {{event.description}}
+                          {{event.description}}<br>
+                          
                       </div>
                     </div>
                   </uib-accordion>
@@ -186,8 +236,11 @@ li a:hover:not(.active) {
                                     Location: {{event.event_address.street}} {{event.event_address.city}}  </br>
                                     {{event.event_address.state}} {{event.event_address.zip_code}}  </br>
                                      </br>
-                                     {{event.description}}
+                                     {{event.description}} <br>
+                                     <button type="button" ng-click="favUser(group._id)" class="btn btn-sm btn-outline-secondary">Add to Favorites</button>
+                          <button type="button" ng-click="removeUser(group._id, $index)" class="btn btn-sm btn-outline-secondary">Unfollow Group</button> 
                                    </div>
+                                   
                               
                           </div>
   
