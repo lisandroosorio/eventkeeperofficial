@@ -119,13 +119,9 @@ li a:hover:not(.active) {
         <li><a class="active">Manage groups</a></li>
         <li><a href="https://eventkeeperofficial.herokuapp.com/#/viewgroups">Groups/Events I'm following</a></li>
         <li><a href="https://eventkeeperofficial.herokuapp.com/#/search">Search for new groups</a></li>
+	       <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
       </ul>
-      <div class="top-nav-right" ng-if="hasSession">
-          <span>
-              
-            <a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a>
-          </span>
-        </div>
+     
         <div class="album py-5 bg-light" >
         <h1 class="jumbotron-heading" style="text-align:center">Welcome to your groups.</h1>
         <p class="lead text-muted"style="text-align:center">See, Manage, and Create groups.</br></p>
