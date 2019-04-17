@@ -378,7 +378,7 @@ $scope.parse=function(name)
   $scope.addGroup = function () {
     console.log("here?");
 
-    $scope.group.creator_id = $scope.userid; //this is how you associate the creator of the db
+    $scope.newGroupHolder.creator_id = $scope.userid; //this is how you associate the creator of the db
 
     // Defaulting deliverer_id to empty string
   
