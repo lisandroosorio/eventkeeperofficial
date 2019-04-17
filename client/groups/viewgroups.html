@@ -166,6 +166,42 @@ li a:hover:not(.active) {
                 </div>
             </div>
           </div>
+
+
+
+
+
+          <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12"  ng-repeat="group in data.groups" ng-init="index=$index">
+                  <div class="our-services-wrapper mb-60"> 
+                      <div class="services-inner">
+                       
+                        <div class="our-services-text" style="padding:10% 15% 10% 15%">
+                          <h4>{{group.name}}</h4>
+                          <div class="testing"style="overflow-y: scroll; height: 200px">
+                             <uib-accordion close-others="oneAtATime">
+  
+                                <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}:{{event.date}}" ng-repeat="event in getArray(index) | filter:filterFn |filter:date" >
+                                    Date: {{event.date}} </br> 
+                                    Location: {{event.event_address.street}} {{event.event_address.city}}  </br>
+                                    {{event.event_address.state}} {{event.event_address.zip_code}}  </br>
+                                     </br>
+                                     {{event.description}}
+                                   </div>
+                              
+                          </div>
+  
+                            </uib-accordion>
+  
+                        </div>
+  
+                      </div>
+                    </div>
+              </div>
+            
+            </div>
+
+
         </div>
       </div>
       EventFilter: {{eventFilter}} <br>
