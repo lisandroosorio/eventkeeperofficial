@@ -157,6 +157,18 @@ $scope.enter = function(groupid) {
   $location.path("/myevents/")
 
 }
+  $scope.filterFn = function(event)
+{
+    var today = new Date();
+    var date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
+    console.log(date);
+    if(event.date >= date)
+    {
+        return true; // this will be listed in the results
+    }
+
+    return false; // otherwise it won't be within the results
+}
 $scope.addUser = function(groupid) {  //adds the user needs to be added somewhere else too
 
   console.log(groupid);
