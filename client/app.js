@@ -39,6 +39,11 @@ angular.module("crowdcart", [
         controller: 'GroupsController',
         authenticate: true
       })
+    .when('/managegroups', {
+        templateUrl: 'groups/managegroups.html',
+        controller: 'GroupsController',
+        authenticate: true
+      })
       .when('/viewgroups', {
         templateUrl: 'groups/viewgroups.html',
         controller: 'GroupsController',
