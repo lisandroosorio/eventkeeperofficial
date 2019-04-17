@@ -12,17 +12,7 @@
 
     <title>Event keeper</title>
 <style>
-.search {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-}
-.search * {
-  outline: none;
-  box-sizing: border-box;
-}
+
 .search__wrapper {
   position: relative;
 }
@@ -243,12 +233,12 @@ p {
             <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
         </ul>
         
-        <form class="search">
+        
                 <div class="search__wrapper">
                   <input type="text" name="" placeholder="Search for..." class="search__field">
                   <button type="submit" class="fa fa-search search__icon"></button>
                 </div>
-        </form>
+        
         
         <div class="container" >
                 
