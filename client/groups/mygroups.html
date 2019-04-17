@@ -92,9 +92,9 @@ p {
       <div class="album py-5 bg-light" >
          
           <h1 class="jumbotron-heading" style="text-align:center">Welcome to your events.</h1>
-          <p class="lead text-muted"style="text-align:center">Being shown are your favorite events.</br> To add more feel free to use the navigation bar.</p>
+          <p class="lead text-muted"style="text-align:center">Being shown are your favorite events.</br> To add more feel free to use the navigation bar.</br></p>
           <p>
-        <div class="container">
+        <div class="container" style="padding-top: 5%">
             
           <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12"  ng-repeat="group in data.favGroups" ng-init="index=$index">
@@ -106,7 +106,7 @@ p {
                         <div class="testing"style="overflow-y: scroll; height: 200px">
                            <uib-accordion close-others="oneAtATime">
 
-                              <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}{{event.date}}" ng-repeat="event in getArray(index) | filter:date" >
+                              <div uib-accordion-group class="mt-1" style="font-size: small" heading="{{event.name}}:{{event.date}}" ng-repeat="event in getArray(index) | filter:date" >
                                   Date: {{event.date}} </br> 
                                   Location: {{event.event_address.street}} {{event.event_address.city}}  </br>
                                   {{event.event_address.state}} {{event.event_address.zip_code}}  </br>
