@@ -13,6 +13,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.eventFilter;
  $scope.tmpHolder=[];
   $scope.newGroupHolder = {};
+  $scope.newEventHolder = {};
 
 
   // store userid/gorupid into local storage (same level as auth token)
