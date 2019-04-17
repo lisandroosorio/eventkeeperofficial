@@ -212,7 +212,7 @@ li a:hover:not(.active) {
                                                                   </div>
                                                                 </div>
                                                               </div>
-                                                              
+
                                                               <div class="modal fade" id="newEvent{{$index}}" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
                                                                   <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
@@ -263,7 +263,7 @@ li a:hover:not(.active) {
                                                                         
                                                                       </div>
                                                                       <div class="modal-footer d-flex justify-content-center">
-                                                                        <button class="btn btn-block btn-primary">Submit</button>
+                                                                        <button  class="btn btn-block btn-primary">Submit</button>
                                                                       </div>
                                                                     </form>
                                                                     </div>
@@ -317,7 +317,7 @@ li a:hover:not(.active) {
                                                                 </br>
                                                                 {{event.description}}
                                                                 <div class = "east" style="padding-top: 5%">
-                                                               
+                                                                <td><button ng-click="editGroup(group._id)" class="btn btn-block btn-primary btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to edit this event?</a></td>
                                                                   <td><button ng-click="deleteEvent(event._id, $index)" class="btn btn-block btn-danger btn-default active" style="color:aliceblue" ><span class="glyphicon glyphicon-book"></span> Want to remove this event?</a></td>
                                                                 </div>
                                                              </div>
