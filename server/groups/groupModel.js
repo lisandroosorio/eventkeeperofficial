@@ -11,7 +11,7 @@ var GroupSchema = new mongoose.Schema({
   expired_at: Date,
   creator_id: String,
   deliverer_id: String,
-  type: Number,
+  type: String,
   isFollowedBy: [],
   isFavBy: [],
   description: String, //new
