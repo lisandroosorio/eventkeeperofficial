@@ -11,7 +11,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.tmpdata = {};
   $scope.events = {};
   $scope.eventFilter;
-  console.log('HELLLLO1!');
+ $scope.tmpHolder=[];
 
 
   // store userid/gorupid into local storage (same level as auth token)
@@ -22,7 +22,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
   
 
-  console.log("we are currently with user "+ $scope.userid);
+  
   if ($routeParams.groupid) { //this is what sends the group type to the user, tis is what displays the groups
     $scope.currentgroup = $routeParams.groupid;
     $scope.currentname = $routeParams.name;
@@ -36,7 +36,7 @@ angular.module("crowdcart.groups", ["angularMoment"])
       .then(function (group) {
         $scope.displayGroup = group
       })
-      console.log($window.localStorage.getItem('currentEvent'));
+    
   }
 
   Groups.getGroups($scope.userid) //gets all the Groups right away for the user
@@ -45,16 +45,24 @@ angular.module("crowdcart.groups", ["angularMoment"])
 
     $scope.data.groups.forEach(function(value,i)
     {
-      console.log($scope.data.groups[i]._id);
+     
       Groups.getEvents($scope.data.groups[i]._id)
       .then(function (event) {
         $scope.events[i] = event;
-        console.log($scope.events[i]);
-        console.log(event);
+   
      
       })
 
     });
+  
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+  Groups.getOwnedGroups($scope.userid) //gets all the Groups right away for the user
+  .then(function (groups) {
+    $scope.data.ownedGroups = groups;
+
   
   })
   .catch(function (error) {
@@ -132,6 +140,18 @@ $scope.init = function(groupid){
 
   $scope.getEvents(groupid);
   
+
+}
+  $scope.showEvent = function(id){
+  Groups.getEvents(id)
+      .then(function(events){
+        $scope.tmpHolder = events; ///data binded to scope.data.Groups which means this then shows it al if you want it
+          //Only showing the Group that has not deliverer, and those that do not belong to user, and not overdue
+         
+      })
+      .catch(function(error){
+        console.error(error);
+      });
 
 }
 $scope.getEvents = function(groupid){
