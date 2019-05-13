@@ -1,6 +1,11 @@
 <!-- individual group item with details -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
 <div class="groupdetail contents-container">
+    <ul>
+        <li><a class="active">Home</a></li>
+        <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
+      </ul>
     <h2 class="detail-header"><span>{{ displayGroup.name }}</span><span>${{ displayGroup.offer_price }}</span><span>Due <span am-time-ago="displaygroup.due_at"></span></span></h2>
   
     <div class="location-address">
