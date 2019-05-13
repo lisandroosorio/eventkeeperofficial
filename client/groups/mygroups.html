@@ -123,22 +123,19 @@ li a:hover:not(.active) {
  
       <ul>
         <li><a class="active">Home</a></li>
-        <li><a href="https://eventkeeperofficial.herokuapp.com/#/managegroups">Manage groups</a></li>
-        <li><a href="https://eventkeeperofficial.herokuapp.com/#/viewgroups">Groups/Events I'm following</a></li>
-        <li><a href="https://eventkeeperofficial.herokuapp.com/#/search">Search for new groups</a></li>
         <li style="float:right"><div class="top-nav-right" ng-if="hasSession"><a ng-click="signout()" href='#/logout' class=" btn button_example  btn-primary btn-default active">Log Out</a></div></li>
       </ul>
 
       <div class="album py-5 bg-light" >
          
-          <h1 class="jumbotron-heading" style="text-align:center">Welcome to your events.</h1>
-          <p class="lead text-muted"style="text-align:center">Being shown are your favorite events.</br> To add more feel free to use the navigation bar.</br></p>
-          <p>
-            <div ng-if="data.groups.length > 5"><a href='#/createnewgroup'>Create New group</a></div>
+          <h1 class="jumbotron-heading" style="text-align:center">Purchases.</h1>
+          <!-- <p class="lead text-muted"style="text-align:center">Being shown are your favorite events.</br> To add more feel free to use the navigation bar.</br></p>
+          <p> -->
+            <div ng-if="data.groups.length > 0"><a href='#/createnewgroup'>Create New group</a></div>
             <table class="table table-hover">
               <thead>
                 <tr class="header">
-                  <th>group Name</th>
+                  <th>Purchase</th>
                   <th>Location</th>
                   <th>Due</th>
                   <th></th>
@@ -149,10 +146,8 @@ li a:hover:not(.active) {
                 <tr class="group" ng-repeat="group in data.groups | orderBy:'due_at' | filter:search">
                   <td ng-click="displayDetail(this.group._id)">{{ group.name }}</td>
                   <td ng-click="displayDetail(this.group._id)">{{ group.description }}, {{ group.delivery_address.state }}</td>
-                  <td ng-click="displayDetail(this.group._id)"><span am-time-ago="group.due_at"></span></td>
                   <td><a ng-click="deletegroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Delete group</a></td>
-                  <td ng-if="!group.deliverer_id">Open</td>
-                  <td ng-if="!!group.deliverer_id">In Work!</td>
+                  <td><a ng-click="deletegroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Edit amount</a></td>
                 </tr>
               </tbody>
             </table>
