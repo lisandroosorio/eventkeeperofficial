@@ -406,36 +406,27 @@ $scope.parse=function(name)
   return name.street + " "+name.city+" "+name.state;
 }
   //add new group method, will be attached into createnewgroup.html
-$scope.addGroup = function () {
-    console.log("here?");
-
-    $scope.newGroupHolder.creator_id = $scope.userid; //this is how you associate the creator of the db
-
+  $scope.addGroup = function () {
+    $scope.group.creator_id = $scope.userid;
     // Defaulting deliverer_id to empty string
-  
+    //$scope.group.deliverer_id = '';
 
-    //If user choose the default address, assign the default address to the group to be added
-    console.log("YEET");
-    
-    Groups.newGroup($scope.newGroupHolder)
+    //If user choose the default address, assign the default address to the list to be added
+   
+    Groups.newGroup($scope.group)
       .then(function () {
-        console.log("successfully added");
-      
-        Groups.getOwnedGroups($scope.userid) //gets all the Groups right away for the user
-        .then(function (groups) {
-          $scope.data.ownedGroups = groups;
-          console.log(groups);
-        
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-
+        $location.path('/mygroups');
       })
       .catch(function (error) {
         console.log(error);
       });
-    document.getElementById("newGroupClose").click();
+  };
+
+  $scope.deleteList = function(listid, idx) {
+    Lists.deleteList(listid)
+      .then(function () {
+        $scope.data.lists.splice(idx, 1)
+      })
   }
 
 $scope.deleteGroup = function(groupid, idx) {
