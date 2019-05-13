@@ -135,23 +135,21 @@ li a:hover:not(.active) {
             <table class="table table-hover">
               <thead>
                 <tr class="header">
-                  <th>Purchase</th>
-                  <th>Location</th>
-                  <th>Due</th>
-                  <th></th>
-                  <th>Status</th>
+                  <th>Purchase </th>
+                  <th>Amount</th>
+                 
                 </tr>
               </thead>
               <tbody>
                 <tr class="group" ng-repeat="group in data.ownedGroups | orderBy:'created_at' | filter:search">
-                  <td ng-click="displayDetail(this.group._id)">{{ group.price }}</td>
-                  <td ng-click="displayDetail(this.group._id)">{{ group.purchaseName }}, {{ group.delivery_address.state }}</td>
+                  <td ng-click="displayDetail(this.group._id)">{{ group.purchaseName }}</td>
+                  <td ng-click="displayDetail(this.group._id)">{{ group.price }}, {{ group.delivery_address.state }}</td>
                   <td><a ng-click="deleteGroup(group._id,$index)" class="btn btn-primary btn-sm active">Delete group</a></td>
                   <td><a ng-click="deletegroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Edit amount</a></td>
                 </tr>
               </tbody>
             </table>
-            <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add group</a></div>
+            <div><a href='#/createnewgroup' class="btn btn-primary btn-sm active">Add purchase</a></div>
           </div>
   
   </div>
