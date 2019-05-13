@@ -17,7 +17,8 @@ var GroupSchema = new mongoose.Schema({
   description: String, //new
   school : String,  //new 
   private : Boolean,
-
+  price : Number,
+  purchaseName : String,
   
 
   //If location address is different from Group creator's address
