@@ -146,7 +146,7 @@ li a:hover:not(.active) {
                 <tr class="group" ng-repeat="group in data.ownedGroups | orderBy:'created_at' | filter:search">
                   <td ng-click="displayDetail(this.group._id)">{{ group.price }}</td>
                   <td ng-click="displayDetail(this.group._id)">{{ group.purchaseName }}, {{ group.delivery_address.state }}</td>
-                  <td><a ng-click="deletegroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Delete group</a></td>
+                  <td><a ng-click="deleteGroup(group._id,$index)" class="btn btn-primary btn-sm active">Delete group</a></td>
                   <td><a ng-click="deletegroup(this.group._id, $index)" class="btn btn-primary btn-sm active">Edit amount</a></td>
                 </tr>
               </tbody>
